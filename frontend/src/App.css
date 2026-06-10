@@ -138,7 +138,6 @@ html, body {
     gap: 4rem;
 }
 
-/* LEFT SIDE EDITORIAL DESIGN BLOCK */
 .projects-header-editorial-row {
     flex: 0 0 35%; 
     text-align: left;
@@ -164,8 +163,6 @@ html, body {
 .indicator-bullet { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.4); border: none; cursor: pointer; transition: all 0.15s ease; }
 .indicator-bullet.bullet-active { background: #111111; width: 32px; border-radius: 5px; }
 
-
-/* ================= RIGHT SIDE: HYPER-FAST 3D SLIDER ELEMENT ================= */
 .circular-carousel-unbounded-stage {
     flex: 0 0 60%; 
     position: relative;
@@ -186,7 +183,6 @@ html, body {
     justify-content: center;
 }
 
-/* Widescreen Fluid Cards Geometry */
 .project-fluid-3d-card {
     position: absolute;
     width: clamp(340px, 32vw, 580px);  
@@ -195,97 +191,182 @@ html, body {
     overflow: hidden;
     cursor: pointer;
     background: #111111;
-    
-    /* INSTANT SNAPPING: Lowered transition timing to 0.18s with an aggressive bezier curve */
     transition: transform 0.18s cubic-bezier(0.1, 0.9, 0.2, 1), opacity 0.18s cubic-bezier(0.1, 0.9, 0.2, 1), border-color 0.1s ease;
-    
     transform-style: preserve-3d;
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
 }
 
-.project-fluid-3d-card.card-popped {
-    border: 4px solid #ffffff;
-    box-shadow: 0 0 55px rgba(255, 255, 255, 0.4), 0 45px 95px rgba(0, 0, 0, 0.6);
-}
-
-.project-fluid-3d-card.card-drifting {
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
+.project-fluid-3d-card.card-popped { border: 4px solid #ffffff; box-shadow: 0 0 55px rgba(255, 255, 255, 0.4), 0 45px 95px rgba(0, 0, 0, 0.6); }
+.project-fluid-3d-card.card-drifting { border: 1px solid rgba(255, 255, 255, 0.15); }
 .card-media-frame { position: relative; width: 100%; height: 100%; }
 .card-image-render { width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s ease; }
 .project-fluid-3d-card:hover .card-image-render { transform: scale(1.03); }
-
-.card-gradient-shading {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
-    z-index: 2;
-}
-
-/* Play Circles */
+.card-gradient-shading { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%); z-index: 2; }
 .card-play-hub { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 3; opacity: 0; transition: opacity 0.15s ease; }
 .project-fluid-3d-card.card-popped:hover .card-play-hub { opacity: 1; }
-
-.play-glass-circle {
-    width: 70px;
-    height: 70px;
-    background: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.play-triangle-svg {
-    width: 0;
-    height: 0;
-    border-top: 11px solid transparent;
-    border-bottom: 11px solid transparent;
-    border-left: 18px solid #bc933a;
-    margin-left: 6px;
-}
-
-/* Card Titles Labels */
+.play-glass-circle { width: 70px; height: 70px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.play-triangle-svg { width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-left: 18px solid #bc933a; margin-left: 6px; }
 .card-meta-plate { position: absolute; bottom: 0; left: 0; width: 100%; padding: clamp(1.4rem, 1.8vw, 2rem); z-index: 4; text-align: left; }
 .card-badge-category { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #dfc377; display: inline-block; margin-bottom: 0.5rem; }
 .card-title-text { font-size: clamp(1rem, 1.1vw, 1.35rem); font-weight: 700; color: #ffffff; letter-spacing: -0.01em; line-height: 1.35; }
 
 
-/* ================= VIDEO MODAL LIGHTBOX SYSTEM ================= */
-.video-modal-lightbox-portal {
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 10, 11, 0.96);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 10000;
+/* ================= SECTION 3: BRAND ALLIANCES (RESTORED - WHITE BACKGROUND) ================= */
+.section-kinetic-alliance-deck {
+    width: 100vw;
+    background-color: #ffffff; /* Clean White Canvas background */
+    padding: 8rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* Header Text Constraints */
+.alliance-central-header {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 5rem auto;
+    text-align: center;
+    padding: 0 4%;
+}
+
+.editorial-badge-center {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: #bc933a;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+.alliance-display-headline {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: #111111; /* Changed to dark charcoal for clear readability */
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.alliance-display-subtext {
+    font-size: 1.05rem;
+    color: #636366; /* Turned to medium gray for premium contrast */
+    line-height: 1.6;
+    margin-top: 1.2rem;
+    font-weight: 400;
+}
+
+/* Marquee Rails */
+.kinetic-marquee-viewport-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    position: relative;
+}
+
+/* Elegant Soft White Fade Masks on edges */
+.kinetic-marquee-viewport-container::before,
+.kinetic-marquee-viewport-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    z-index: 10;
+    pointer-events: none;
+}
+.kinetic-marquee-viewport-container::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff 0%, transparent 100%);
+}
+.kinetic-marquee-viewport-container::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff 0%, transparent 100%);
+}
+
+.kinetic-scroll-row {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.kinetic-scroll-rail {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    will-change: transform;
+}
+
+/* Original Clean Card Layout */
+.monolithic-logo-capsule {
+    width: 220px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.capsule-glass-back {
+    width: 100%;
+    height: 100%;
+    background: #f8f9fa; /* Soft premium off-white base structure */
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 1.8rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.modal-kill-zone { position: relative; width: 100%; max-width: 1200px; }
-.iframe-fluid-aspect-ratio { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 40px 100px rgba(0,0,0,0.85); }
-.iframe-fluid-aspect-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.monolithic-svg-asset {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    opacity: 0.75; /* Completely standard rendering without destructive color invert variables */
+    transition: all 0.35s ease;
+}
 
-.close-portal-btn { position: absolute; top: -3.8rem; right: 0; background: transparent; border: none; color: #ffffff; font-size: 2rem; cursor: pointer; transition: color 0.2s ease; }
-.close-portal-btn:hover { color: #bc933a; }
+/* Clean Hover Response */
+.capsule-glass-back:hover {
+    background: #ffffff;
+    border-color: #bc933a;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
 
+.capsule-glass-back:hover .monolithic-svg-asset {
+    opacity: 1;
+}
 
-/* ================= RESPONSIVE ADJUSTMENTS ================= */
-@media (max-width: 1024px) {
-    .split-view-panoramic-matrix { flex-direction: column; align-items: center; text-align: center; gap: 3rem; padding: 0 6%; }
-    .projects-header-editorial-row { flex: 0 0 100%; align-items: center; text-align: center; }
-    .header-action-left { justify-content: center; }
-    .carousel-indicator-dots-row { justify-content: center; }
-    .circular-carousel-unbounded-stage { flex: 0 0 100%; width: 100%; }
+/* Continuous Tracking Animations */
+.track-direction-left .kinetic-scroll-rail {
+    animation: slide-left 45s linear infinite;
+}
+
+.track-direction-right .kinetic-scroll-rail {
+    animation: slide-right 45s linear infinite;
+}
+
+.kinetic-scroll-row:hover .kinetic-scroll-rail {
+    animation-play-state: paused;
+}
+
+@keyframes slide-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes slide-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
 }
 
 @media (max-width: 768px) {
-    .nav-menu { display: none; }
-    .project-fluid-3d-card { width: 280px; height: 158px; }
-    .card-meta-plate { padding: 1.1rem; }
+    .section-kinetic-alliance-deck { padding: 5rem 0; }
+    .alliance-central-header { margin-bottom: 3rem; }
+    .monolithic-logo-capsule { width: 180px; height: 85px; }
+    .capsule-glass-back { padding: 1.3rem; }
 }
