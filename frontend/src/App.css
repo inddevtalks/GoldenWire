@@ -1,0 +1,291 @@
+/* App.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; 
+    color: #111111;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.homepage-root {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* ================= HEADER BRAND BAR NAVIGATION ================= */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(188, 147, 58, 0.15);
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 100%; 
+    margin: 0;
+    padding: 1.4rem 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.logo-icon { color: #bc933a; font-size: 1.1rem; }
+.logo-text { font-size: 1.1rem; font-weight: 900; letter-spacing: 0.25em; color: #111111; text-transform: uppercase; }
+.logo-text .gold-accent { color: #bc933a; font-weight: 300; }
+.nav-menu { display: flex; align-items: center; gap: 3.5rem; }
+.nav-link { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #4b5563; text-decoration: none; }
+.nav-link:hover, .nav-link.active { color: #bc933a; }
+
+
+/* ================= SECTION 1: HERO SCREEN VIEWPORT ================= */
+.video-homepage-fullscreen {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 4% 4rem 4%;
+    background-color: #ffffff;
+}
+
+.absolute-viewport-video-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.hero-fluid-video-asset {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-clearance-overlay-tint {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 0.9) 0%, 
+        rgba(255, 255, 255, 0.5) 60%, 
+        rgba(255, 255, 255, 0.95) 100%
+    );
+}
+
+.hero-inner-content {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+.editorial-badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.35em; color: #bc933a; margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 1.2rem; justify-content: center; }
+.badge-line { width: 35px; height: 1px; background-color: #bc933a; }
+.main-heading { font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.25; color: #111111; }
+.main-heading .gold-word { color: #bc933a; font-weight: 900; }
+.sub-heading-text { font-size: clamp(1rem, 1.5vw, 1.35rem); color: #4b5563; max-width: 1100px; margin: 2rem auto 3.5rem auto; line-height: 1.75; font-weight: 500; }
+
+.premium-cta-btn { display: inline-block; border: 1.5px solid #bc933a; background: transparent; padding: 1.2rem 3.5rem; text-decoration: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.premium-cta-btn span { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.25em; color: #111111; text-transform: uppercase; }
+.premium-cta-btn:hover { background-color: #bc933a; box-shadow: 0 20px 40px rgba(188, 147, 58, 0.25); transform: translateY(-3px); }
+.premium-cta-btn:hover span { color: #ffffff; }
+
+
+/* ================= SECTION 2: METALLIC GOLD PORTFOLIO SPLIT GRID ================= */
+.section-projects-golden-fullscreen {
+    position: relative;
+    width: 100vw; 
+    min-height: 100vh;
+    background: linear-gradient(135deg, #a87f2a 0%, #bc933a 35%, #dfc377 70%, #9e7523 100%);
+    padding: 4rem 0;
+    z-index: 20; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.metallic-shimmer-layer {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0.1) 100%);
+    pointer-events: none;
+}
+
+.split-view-panoramic-matrix {
+    width: 100%;
+    padding: 0 4% 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+/* LEFT SIDE EDITORIAL DESIGN BLOCK */
+.projects-header-editorial-row {
+    flex: 0 0 35%; 
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 30;
+}
+
+.editorial-badge-dark { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.35em; color: #111111; margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 1rem; }
+.badge-line-dark { width: 30px; height: 2px; background-color: #111111; }
+.section-title-dark { font-size: clamp(2.2rem, 3.6vw, 3.5rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; color: #111111; margin-bottom: 1.5rem; line-height: 1.15; }
+.section-title-dark span { color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+.section-description-dark { font-size: clamp(1rem, 1.2vw, 1.2rem); color: #f8f9fa; line-height: 1.65; font-weight: 500; margin-bottom: 2.2rem; }
+
+.header-action-left { width: 100%; display: flex; justify-content: flex-start; }
+.premium-explore-dark-btn { display: inline-block; border: 1.5px solid #111111; background: transparent; padding: 1.1rem 2.8rem; text-decoration: none; transition: all 0.3s ease; }
+.premium-explore-dark-btn span { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #111111; }
+.premium-explore-dark-btn:hover { background-color: #111111; transform: translateY(-2px); }
+.premium-explore-dark-btn:hover span { color: #bc933a; }
+
+.carousel-indicator-dots-row { display: flex; gap: 0.7rem; justify-content: flex-start; margin-top: 3rem; }
+.indicator-bullet { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.4); border: none; cursor: pointer; transition: all 0.15s ease; }
+.indicator-bullet.bullet-active { background: #111111; width: 32px; border-radius: 5px; }
+
+
+/* ================= RIGHT SIDE: HYPER-FAST 3D SLIDER ELEMENT ================= */
+.circular-carousel-unbounded-stage {
+    flex: 0 0 60%; 
+    position: relative;
+    height: clamp(450px, 34vw, 580px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-3d-axis {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 2000px; 
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Widescreen Fluid Cards Geometry */
+.project-fluid-3d-card {
+    position: absolute;
+    width: clamp(340px, 32vw, 580px);  
+    height: clamp(191px, 18vw, 326px); 
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111111;
+    
+    /* INSTANT SNAPPING: Lowered transition timing to 0.18s with an aggressive bezier curve */
+    transition: transform 0.18s cubic-bezier(0.1, 0.9, 0.2, 1), opacity 0.18s cubic-bezier(0.1, 0.9, 0.2, 1), border-color 0.1s ease;
+    
+    transform-style: preserve-3d;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+}
+
+.project-fluid-3d-card.card-popped {
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 55px rgba(255, 255, 255, 0.4), 0 45px 95px rgba(0, 0, 0, 0.6);
+}
+
+.project-fluid-3d-card.card-drifting {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.card-media-frame { position: relative; width: 100%; height: 100%; }
+.card-image-render { width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s ease; }
+.project-fluid-3d-card:hover .card-image-render { transform: scale(1.03); }
+
+.card-gradient-shading {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
+    z-index: 2;
+}
+
+/* Play Circles */
+.card-play-hub { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 3; opacity: 0; transition: opacity 0.15s ease; }
+.project-fluid-3d-card.card-popped:hover .card-play-hub { opacity: 1; }
+
+.play-glass-circle {
+    width: 70px;
+    height: 70px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.play-triangle-svg {
+    width: 0;
+    height: 0;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 18px solid #bc933a;
+    margin-left: 6px;
+}
+
+/* Card Titles Labels */
+.card-meta-plate { position: absolute; bottom: 0; left: 0; width: 100%; padding: clamp(1.4rem, 1.8vw, 2rem); z-index: 4; text-align: left; }
+.card-badge-category { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #dfc377; display: inline-block; margin-bottom: 0.5rem; }
+.card-title-text { font-size: clamp(1rem, 1.1vw, 1.35rem); font-weight: 700; color: #ffffff; letter-spacing: -0.01em; line-height: 1.35; }
+
+
+/* ================= VIDEO MODAL LIGHTBOX SYSTEM ================= */
+.video-modal-lightbox-portal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 11, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.modal-kill-zone { position: relative; width: 100%; max-width: 1200px; }
+.iframe-fluid-aspect-ratio { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 40px 100px rgba(0,0,0,0.85); }
+.iframe-fluid-aspect-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.close-portal-btn { position: absolute; top: -3.8rem; right: 0; background: transparent; border: none; color: #ffffff; font-size: 2rem; cursor: pointer; transition: color 0.2s ease; }
+.close-portal-btn:hover { color: #bc933a; }
+
+
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+@media (max-width: 1024px) {
+    .split-view-panoramic-matrix { flex-direction: column; align-items: center; text-align: center; gap: 3rem; padding: 0 6%; }
+    .projects-header-editorial-row { flex: 0 0 100%; align-items: center; text-align: center; }
+    .header-action-left { justify-content: center; }
+    .carousel-indicator-dots-row { justify-content: center; }
+    .circular-carousel-unbounded-stage { flex: 0 0 100%; width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .project-fluid-3d-card { width: 280px; height: 158px; }
+    .card-meta-plate { padding: 1.1rem; }
+}
