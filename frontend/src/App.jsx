@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css'; 
 
 // Local Main Hero Video Asset (Keep or substitute with placeholder link if needed)
-import homepageVideo from './assets/videos/homepage-banner.mp4';
+import homepageVideo from './assets/Videos/homepage-banner.mp4';
 
 import { Link } from "react-router-dom";
 
