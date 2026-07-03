@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css'; 
 
 // Local Main Hero Video Asset (Keep or substitute with placeholder link if needed)
-import homepageVideo from './assets/Videos/homepage-banner.mp4';
-
-import { Link } from "react-router-dom";
-
+import homepageVideo from './assets/videos/homepage-banner.mp4';
 
 function App() {
+  // Navigation Menu Responsive Toggle State
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   // 1. PROJECTS CAROUSEL DATA-STORE
   const [projects] = useState([
     { id: 1, category: 'Real Estate', title: 'Video & Film for Real Estate', vId: '23UNLBhUtW4', thumb: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80' },
@@ -45,6 +45,25 @@ function App() {
     { id: 'b8', name: 'Hyundai', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hyundai_Motor_Company_logo.svg/1280px-Hyundai_Motor_Company_logo.svg.png' },
     { id: 'b9', name: 'Yamaha', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yamaha_logo.svg/1280px-Yamaha_logo.svg.png' },
     { id: 'b10', name: 'Shell', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Shell_logo.svg/1024px-Shell_logo.svg.png' }
+  ]);
+
+  // 3. DISCOVER OUR EXPERTISE MOSAIC ARRAY
+  const [expertiseServices] = useState([
+    { title: 'Ad Films', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/ad-films-v1.webp' },
+    { title: 'Brand Films', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/brand-films.webp' },
+    { title: 'Corporate Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/corporate-videos.webp' },
+    { title: 'Explainer Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/explainer-videos.webp' },
+    { title: '2D Animation Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/animation-video.webp' },
+    { title: 'Video Podcast', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/podcast-video.webp' },
+    { title: 'Documentary Films', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/documentry-film.webp' },
+    { title: 'Testimonial Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/testimonial.webp' },
+    { title: 'Drone Videography', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/drone.webp' },
+    { title: 'Event Videography', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/event.webp' },
+    { title: 'Product Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/product-video.webp' },
+    { title: 'Social Media Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/social-media-videos.webp' },
+    { title: 'Photoshoots', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/photoshoots-v1.webp' },
+    { title: '3D Animation Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/3d-animation.webp' },
+    { title: 'AI Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/ai-videos/ai-videos-thumbnail.webp' }
   ]);
 
   // 4. INDUSTRIES CORE BLOCK MATRIX (PREMIUM EDITORIAL GRIDS)
@@ -92,7 +111,6 @@ function App() {
   // Form Field State Handling
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
 
-
   const specs = [
     { title: "High-Density React", desc: "Architecture optimized for complex, data-heavy dashboard visualizations." },
     { title: "Cinematic Revenue Design", desc: "Production-grade visuals engineered specifically to drive conversion funnels." },
@@ -100,8 +118,6 @@ function App() {
     { title: "Bespoke Automation", desc: "Backend logistics tailored to your specific business intelligence needs." }
   ];
 
-
-  
   useEffect(() => {
     startAutoRotation();
     return () => stopAutoRotation();
@@ -130,18 +146,14 @@ function App() {
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 }
-    }
+  // Menu Drawer Handler
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  const item = {
-    // This starts them from a tiny point in the center
-    hidden: { opacity: 0, scale: 0, y: 100 },
-    show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
+  // Closes mobile screen tray smoothly when an option is selected
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -150,37 +162,45 @@ function App() {
       {/* GLOBAL SYSTEM NAVIGATION */}
       <header className="site-header">
         <div className="nav-container">
-          <a href="#home" className="site-logo">
-            <span className="logo-icon">✦</span>
-            <div className="logo-text">GOLDEN <span className="gold-accent">WIRE</span></div>
+          
+          {/* Logo Section with Image Link */}
+          <a href="#home" className="site-logo" onClick={closeMenu}>
+            <img src="/logo/1.png" alt="Golden Wire Logo" className="logo-img" />
           </a>
-          <nav className="nav-menu">
-            <a href="/" className="nav-link">Home</a>
-            <Link to="/about" className="nav-link">About</Link>
-            
-            <div className="nav-dropdown">
-              <a href="#bts-vault-anchor" className="nav-link">
-                Services
-              </a>
 
+          {/* Responsive Hamburger Toggle Button */}
+          <button 
+            className={`hamburger-btn ${isMenuOpen ? 'active' : ''}`} 
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+          >
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
+
+          {/* Navigation Links Menu */}
+          <nav className={`nav-menu ${isMenuOpen ? 'mobile-open' : ''}`}>
+            <a href="#home" className="nav-link" onClick={closeMenu}>Home</a>
+            <a href="#expertise-wall-section" className="nav-link active" onClick={closeMenu}>About Us</a>
+            
+            {/* Embedded Services Navigation Dropdown Drop Item */}
+            <div className="nav-dropdown">
+              <a href="#bts-vault-anchor" className="nav-link">Services</a>
               <div className="services-dropdown">
-                <Link to="/documentary">Documentary</Link>
-                <Link to="/corporate-videos">Corporate Videos</Link>
-                <Link to="/video-podcast">Video Podcast</Link>
-                <Link to="/drone-videography">Drone Videography</Link>
-                <Link to="/event-videography">Event Videography</Link>
-                <Link to="/social-media-videos">Social Media Videos</Link>
-                <Link to="/photoshoots">Photoshoots</Link>
+                <a href="#ad-films" onClick={closeMenu}>Ad Films</a>
+                <a href="#brand-films" onClick={closeMenu}>Brand Films</a>
+                <a href="#corporate" onClick={closeMenu}>Corporate Videos</a>
               </div>
             </div>
-            
-            {/* Change this from an anchor tag to a React Router Link */}
-            <Link to="/blogs" className="nav-link">Blogs</Link>
-            
-            <Link to="/contact" className="nav-link">Contact</Link>
+
+            <a href="#testimonials-marquee-section" className="nav-link" onClick={closeMenu}>Blogs</a>
+            <a href="#contact-editorial-anchor" className="nav-link" onClick={closeMenu}>Contact</a>
           </nav>
+
         </div>
       </header>
+      {/* SECTION 1: HERO ACTION FULLSCREEN VIEWPORT */}
 
       {/* SECTION 1: HERO ACTION FULLSCREEN VIEWPORT */}
       <section className="video-homepage-fullscreen" id="home">
@@ -193,16 +213,21 @@ function App() {
 
         <div className="hero-inner-content">
           <div className="editorial-badge">
-            <span className="badge-line"></span>Global Creative Studio<span className="badge-line"></span>
+            <span className="badge-line"></span>
+            Global Creative Studio
+            <span className="badge-line"></span>
           </div>
           <h1 className="main-heading">
-            SHAPE REVENUE THROUGH <br />
-            <span className="gold-word">HIGH-IMPACT</span> VISUAL DIRECTION <br />
-            & <span className="gold-word">CINEMATIC</span> STORYTELLING.
+            SHAPE REVENUE THROUGH HIGH-IMPACT VISUAL DIRECTION & CINEMATIC STORYTELLING.
           </h1>
           <p className="sub-heading-text">
             We partner with ambitious global brands to architect elite ad films, commercial campaigns, and digital assets that command industry attention.
           </p>
+          <div className="hero-action-row">
+            <a href="#bts-vault-anchor" className="premium-cta-btn">
+              <span>Explore BTS Vault</span>
+            </a>
+          </div>
         </div>
       </section>
 
