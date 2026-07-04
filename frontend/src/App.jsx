@@ -595,60 +595,72 @@ function App() {
 
 
 {/* ############### */}
-      <section className="git-layout4">
-  {/* Background wrapper for the blur effect */}
-  <div className="layout4-bg-overlay"></div>
-  
+      <section id="get-in-touch" className="contact-section-layout4">
   <div className="layout4-container">
     <div className="layout4-grid">
       
-      {/* Left Info Panel */}
-      <div className="layout4-info">
-        <div className="layout4-accent-box">
-          <h2 className="layout4-heading">
-            Connect <br />
-            <span>With Us</span>
-          </h2>
-          <p className="layout4-text">
-            Ready to turn your ideas into reality? <br />
-            Drop us a line and we'll take it from there.
-          </p>
-        </div>
-        <div className="layout4-meta">
-          <span>Direct Contact</span>
-          <a href="mailto:goldenwiremedia2@gmail.com" className="layout4-email-link">
-            goldenwiremedia2@gmail.com
-          </a>
-        </div>
+      {/* LEFT COLUMN - TEXT COMBINED AT THE TOP */}
+      <div className="layout4-info-pane">
+        <p className="layout4-kicker">Get in Touch</p>
+        <h2 className="layout4-headline">
+          Ready to Turn Your  <br />
+          <span>Vision into Cinematic Gold?</span>
+        </h2>
+        <p className="layout4-paragraph">
+          Ready to scale your brand? Drop your project details below. Let’s co-author a powerful visual campaign and set a new industry standard together.
+        </p>
       </div>
 
-      {/* Right Form Panel */}
-      <div className="layout4-form-container">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <div className="layout4-input-grid">
-            <div className="layout4-field-group">
-              <input type="text" required placeholder="Full Name" />
+      {/* RIGHT COLUMN - INPUT MATRIX */}
+      <div className="layout4-form-pane">
+        <form 
+          className="ov-enquiry-form" 
+          data-form-type="get-in-touch" 
+          method="post" 
+          noValidate
+        >
+          <input type="hidden" name="form_type" value="get-in-touch" />
+          <input type="hidden" name="source_page" value="Homepage" />
+          <input type="hidden" name="recaptcha_token" value="" />
+
+          {/* Row 1 */}
+          <div className="layout4-input-row">
+            <div className="layout4-input-field">
+              <input type="text" name="full_name" placeholder="Full Name*" required />
             </div>
-            <div className="layout4-field-group">
-              <input type="text" placeholder="Job Title" />
-            </div>
-            <div className="layout4-field-group">
-              <input type="email" required placeholder="Work Email" />
-            </div>
-            <div className="layout4-field-group">
-              <input type="tel" required placeholder="Contact Number" />
-            </div>
-            <div className="layout4-field-group">
-              <input type="text" required placeholder="Company Name" />
-            </div>
-            <div className="layout4-field-group">
-              <input type="url" placeholder="Website URL" />
+            <div className="layout4-input-field">
+              <input type="text" name="job_title" placeholder="Job Title" />
             </div>
           </div>
-          <div className="layout4-field-group">
-            <textarea placeholder="Message"></textarea>
+
+          {/* Row 2 */}
+          <div className="layout4-input-row">
+            <div className="layout4-input-field">
+              <input type="email" name="work_email" placeholder="Work Email*" required />
+            </div>
+            <div className="layout4-input-field">
+              <input type="tel" name="contact_number" placeholder="Contact Number*" required />
+            </div>
           </div>
-          <button type="submit" className="layout4-submit-btn">Submit Information</button>
+
+          {/* Row 3 */}
+          <div className="layout4-input-row">
+            <div className="layout4-input-field">
+              <input type="text" name="company_name" placeholder="Company Name*" required />
+            </div>
+            <div className="layout4-input-field">
+              <input type="url" name="website_url" placeholder="Website URL" />
+            </div>
+          </div>
+
+          {/* Message field */}
+          <div className="layout4-input-field full-width">
+            <textarea name="message" rows="5" placeholder="Message"></textarea>
+          </div>
+
+          <div className="ov-form-msg" role="status"></div>
+          
+          <button type="submit" className="ov-submit-btn-layout4">Submit</button>
         </form>
       </div>
 

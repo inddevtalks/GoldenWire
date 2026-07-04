@@ -2601,209 +2601,193 @@ html, body {
 /* ######## 7 */
 /* **************************************** */
 
-.git-layout4 {
-  position: relative;
-  min-height: 100vh;
+/* FIX: Upgraded section background to a rich golden metallic gradient profile */
+.contact-section-layout4 {
+  width: 100%;
   display: flex;
   align-items: center;
-  padding: 120px 0;
+  padding: 80px 0; 
   font-family: system-ui, -apple-system, sans-serif;
-  overflow: hidden;
+  background: linear-gradient(135deg, #f4e3be 0%, #dfba6b 50%, #cfa34c 100%); 
   box-sizing: border-box;
 }
 
-/* Background image - Now perfectly sharp and clear */
-.layout4-bg-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('https://media.istockphoto.com/id/92051425/photo/cameraman-records-show-in-a-tv-studio.webp?a=1&b=1&s=612x612&w=0&k=20&c=WWFC6e_jlFBGT6EdLy7skvXBOhxr6UHC3IJcz-hSXiY=');
-  background-size: cover;
-  background-position: center;
-  /* Removed the blur filter entirely, kept brightness adjustment for text contrast */
-  filter: brightness(0.35); 
-  z-index: 1;
-}
-
-.layout4-container {
-  position: relative;
+.contact-section-layout4 .layout4-container {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 24px;
   box-sizing: border-box;
-  z-index: 2;
 }
 
-.layout4-grid {
+.contact-section-layout4 .layout4-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 60px;
-  align-items: center;
+  grid-template-columns: 1.2fr 1fr; 
+  gap: 60px; 
+  align-items: center; 
 }
 
-/* Left Info Layout Details */
-.layout4-info {
-  color: #ffffff;
-}
-
-.layout4-accent-box {
-  border-left: 4px solid rgb(194, 140, 65);
-  padding-left: 24px;
-  margin-bottom: 40px;
-}
-
-.layout4-heading {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 900;
-  margin: 0 0 20px 0;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.layout4-heading span {
-  background: linear-gradient(135deg, rgb(215, 165, 95) 0%, rgb(170, 120, 50) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.layout4-text {
-  color: #e2e2e9;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.layout4-meta span {
-  display: block;
-  font-size: 0.8rem;
-  color: #aaaaba;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
-}
-
-.layout4-email-link {
-  font-size: 1.2rem;
-  color: #ffffff;
-  font-weight: 700;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.layout4-email-link:hover {
-  color: rgb(215, 165, 95);
-}
-
-/* Sleek Overlay Form Card Area */
-.layout4-form-container {
-  /* Slightly darkened solid alpha background so inputs pop over the clear image */
-  background: rgba(15, 15, 20, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 50px;
-  border-radius: 16px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-}
-
-.layout4-form-container form {
+/* Left typography pane styling */
+.contact-section-layout4 .layout4-info-pane {
+  color: #111111; 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  box-sizing: border-box;
 }
 
-.layout4-input-grid {
+.contact-section-layout4 .layout4-kicker {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em; 
+  font-weight: 700;
+  color: #111111; /* Set to dark for crystal-clear readability against gold background */
+  margin: 0 0 14px 0;
+}
+
+.contact-section-layout4 .layout4-headline {
+  font-size: clamp(2rem, 3.2vw, 2.6rem); 
+  font-weight: 800;
+  line-height: 1.25; 
+  letter-spacing: -0.015em;
+  color: #111111;
+  margin: 0 0 18px 0; 
+}
+
+.contact-section-layout4 .layout4-headline span {
+  color: #ffffff; /* Contrast accent color on gold backdrop */
+}
+
+.contact-section-layout4 .layout4-paragraph {
+  font-size: 0.95rem;
+  line-height: 1.65; 
+  color: #222222; 
+  margin: 0; 
+}
+
+/* Form layout block styles */
+.contact-section-layout4 .layout4-form-pane {
+  background: transparent;
+  padding: 0;
+  max-width: 460px; 
+  width: 100%;
+  justify-self: end; 
+}
+
+.contact-section-layout4 .layout4-form-pane form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; 
+}
+
+.contact-section-layout4 .layout4-input-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.layout4-field-group {
-  position: relative;
+  gap: 20px; 
   width: 100%;
 }
 
-.layout4-form-container input,
-.layout4-form-container textarea {
+.contact-section-layout4 .layout4-input-field {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: #ffffff;
+}
+
+.contact-section-layout4 .layout4-input-field.full-width {
+  width: 100%;
+}
+
+.contact-section-layout4 .layout4-form-pane input {
+  width: 100%;
+  padding: 14px 14px; 
+  background: rgba(255, 255, 255, 0.85); /* Slightly boosted opacity to contrast beautifully over gold */
+  border: 1px solid #111111; 
+  border-radius: 4px;
+  font-size: 0.9rem; 
+  color: #111111;
   outline: none;
   box-sizing: border-box;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-.layout4-form-container input::placeholder,
-.layout4-form-container textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.layout4-form-container input:focus,
-.layout4-form-container textarea:focus {
-  border-color: rgb(215, 165, 95);
-  background: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 0 0 3px rgba(215, 165, 95, 0.15);
-}
-
-.layout4-form-container textarea {
-  height: 120px;
-  resize: none;
-}
-
-.layout4-submit-btn {
-  background: #ffffff;
+.contact-section-layout4 .layout4-form-pane textarea {
+  width: 100%;
+  padding: 14px 14px;
+  background: rgba(255, 255, 255, 0.85); 
+  border: 1px solid #111111; 
+  border-radius: 4px;
+  font-size: 0.9rem; 
   color: #111111;
-  border: none;
-  padding: 16px 40px;
-  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  min-height: 130px; 
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-section-layout4 .layout4-form-pane input::placeholder,
+.contact-section-layout4 .layout4-form-pane textarea::placeholder {
+  color: #555555;
+  font-weight: 400;
+}
+
+.contact-section-layout4 .layout4-form-pane input:focus,
+.contact-section-layout4 .layout4-form-pane textarea:focus {
+  background: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.1);
+}
+
+/* Submit action configuration with border footprint and transparent backdrop */
+.contact-section-layout4 .ov-submit-btn-layout4 {
+  background: transparent; 
+  color: #111111; 
+  border: 2px solid #111111; 
+  align-self: flex-start; 
+  padding: 12px 48px; 
+  font-size: 0.95rem;
   font-weight: 700;
-  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
+  margin-top: 4px;
 }
 
-.layout4-submit-btn:hover {
-  background: rgb(215, 165, 95);
+.contact-section-layout4 .ov-submit-btn-layout4:hover {
+  background: #111111;
   color: #ffffff;
-  box-shadow: 0 8px 20px rgba(194, 140, 65, 0.2);
+  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.15);
 }
 
-.layout4-submit-btn:active {
-  transform: scale(0.99);
-}
-
-/* Responsive Breakpoints */
+/* Responsive Adaptive Setup */
 @media (max-width: 992px) {
-  .git-layout4 {
-    padding: 80px 0;
+  .contact-section-layout4 {
+    padding: 60px 0;
   }
-  .layout4-grid {
+  .contact-section-layout4 .layout4-grid {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 40px;
   }
-  .layout4-accent-box {
-    margin-bottom: 24px;
+  .contact-section-layout4 .layout4-info-pane {
+    text-align: center;
+  }
+  .contact-section-layout4 .layout4-form-pane {
+    max-width: 100%;
+    justify-self: center;
+  }
+  .contact-section-layout4 .ov-submit-btn-layout4 {
+    align-self: center;
+    width: 100%;
   }
 }
 
 @media (max-width: 576px) {
-  .git-layout4 {
-    padding: 60px 0;
+  .contact-section-layout4 .layout4-container {
+    padding: 0 16px;
   }
-  .layout4-container {
-    padding: 0 20px;
-  }
-  .layout4-form-container {
-    padding: 30px 20px;
-    border-radius: 12px;
-  }
-  .layout4-input-grid {
+  .contact-section-layout4 .layout4-input-row {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
 }
