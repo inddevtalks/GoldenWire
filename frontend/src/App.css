@@ -1654,11 +1654,13 @@ html, body {
 }
 
 .testi-display-headline {
-  font-size: 2.8rem;
+  /* Using clamp makes the font fluid: Min 1.8rem, scales with screen width, Max 2.8rem */
+  font-size: clamp(1.8rem, 4vw + 1rem, 2.8rem);
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.2; /* Slightly increased for better mobile readability */
   color: #111111;
   letter-spacing: -0.02em;
+  word-wrap: break-word; /* Prevents long single words from breaking layout */
 }
 
 .testi-display-headline span {
@@ -1751,7 +1753,7 @@ html, body {
   color: rgba(0, 0, 0, 0.5);
 }
 
-/* Responsive adjustment */
+/* Responsive adjustments */
 @media (max-width: 1024px) {
   .testi-grid-matrix {
     grid-template-columns: 1fr 1fr;
@@ -1759,11 +1761,23 @@ html, body {
 }
 
 @media (max-width: 768px) {
+  .testimonials-marquee-section {
+    padding: 80px 0; /* Reduced top/bottom padding for mobile screens */
+  }
+
+  .testi-layout-container {
+    padding: 0 24px; /* Reduced container padding to maximize screen real estate */
+  }
+
   .testi-grid-matrix {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .testi-card-snippet {
+    padding: 30px; /* Made the card slightly tighter on small viewports */
   }
 }
-
 
 
 
@@ -2585,57 +2599,211 @@ html, body {
 .faq-answer.active { max-height: 100px; margin-top: 10px; opacity: 1; }
 
 /* ######## 7 */
+/* **************************************** */
 
-.get-in-touch { padding: 80px 5%; background: #fcfcfc; }
-.container { max-width: 1100px; margin: 0 auto; }
-.content-wrapper { display: flex; gap: 80px; align-items: center; justify-content: space-between; }
+.git-layout4 {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  box-sizing: border-box;
+}
 
-/* LEFT SIDE */
-.text-side { flex: 1; padding-right: 40px; }
-.professional-title { font-size: 6.5rem; font-weight: 800; line-height: 0.85; color: #1a1a1a; margin-bottom: 35px; letter-spacing: -3px; }
-.gold-text { color: #d4af37; }
-.description-text { font-size: 1.5rem; line-height: 1.5; color: #4a4a4a; margin-bottom: 40px; }
-.contact-footer { border-left: 4px solid #d4af37; padding-left: 20px; }
-.contact-footer p { margin: 0; font-size: 0.9rem; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
-.email-link { font-size: 1.6rem; font-weight: 700; color: #1a1a1a; text-decoration: none; }
+/* Background image - Now perfectly sharp and clear */
+.layout4-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://media.istockphoto.com/id/92051425/photo/cameraman-records-show-in-a-tv-studio.webp?a=1&b=1&s=612x612&w=0&k=20&c=WWFC6e_jlFBGT6EdLy7skvXBOhxr6UHC3IJcz-hSXiY=');
+  background-size: cover;
+  background-position: center;
+  /* Removed the blur filter entirely, kept brightness adjustment for text contrast */
+  filter: brightness(0.35); 
+  z-index: 1;
+}
 
-/* RIGHT SIDE: Horizontal/Vertical Mix */
-.form-side { flex: 0 0 500px; }
-form { display: flex; flex-direction: column; gap: 20px; }
-
-/* 2-Column Row */
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-/* Field Group with Label Above */
-.field-group { display: flex; flex-direction: column; gap: 8px; }
-.field-group label { font-weight: 700; font-size: 0.8rem; color: #333; text-transform: uppercase; letter-spacing: 1px; }
-
-input, textarea {
+.layout4-container {
+  position: relative;
   width: 100%;
-  padding: 14px;
-  border: 2px solid #000000;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.layout4-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Info Layout Details */
+.layout4-info {
+  color: #ffffff;
+}
+
+.layout4-accent-box {
+  border-left: 4px solid rgb(194, 140, 65);
+  padding-left: 24px;
+  margin-bottom: 40px;
+}
+
+.layout4-heading {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.layout4-heading span {
+  background: linear-gradient(135deg, rgb(215, 165, 95) 0%, rgb(170, 120, 50) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.layout4-text {
+  color: #e2e2e9;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.layout4-meta span {
+  display: block;
+  font-size: 0.8rem;
+  color: #aaaaba;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.layout4-email-link {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.layout4-email-link:hover {
+  color: rgb(215, 165, 95);
+}
+
+/* Sleek Overlay Form Card Area */
+.layout4-form-container {
+  /* Slightly darkened solid alpha background so inputs pop over the clear image */
+  background: rgba(15, 15, 20, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 50px;
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.layout4-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.layout4-input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.layout4-field-group {
+  position: relative;
+  width: 100%;
+}
+
+.layout4-form-container input,
+.layout4-form-container textarea {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.layout4-form-container input::placeholder,
+.layout4-form-container textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.layout4-form-container input:focus,
+.layout4-form-container textarea:focus {
+  border-color: rgb(215, 165, 95);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 0 3px rgba(215, 165, 95, 0.15);
+}
+
+.layout4-form-container textarea {
+  height: 120px;
+  resize: none;
+}
+
+.layout4-submit-btn {
   background: #ffffff;
-  border-radius: 12px;
-  font-family: inherit;
+  color: #111111;
+  border: none;
+  padding: 16px 40px;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-input:focus, textarea:focus { border-color: #d4af37; outline: none; }
-textarea { height: 100px; resize: none; }
-
-button {
-  background: #1a1a1a; color: white; padding: 16px; border: none; border-radius: 12px;
-  cursor: pointer; width: 100%; font-weight: 700; font-size: 1rem; text-transform: uppercase;
-  transition: all 0.3s ease;
+.layout4-submit-btn:hover {
+  background: rgb(215, 165, 95);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(194, 140, 65, 0.2);
 }
-button:hover { background: #d4af37; transform: translateY(-2px); }
 
-/* Responsive */
-@media (max-width: 950px) {
-  .content-wrapper { flex-direction: column; text-align: center; }
-  .text-side { padding-right: 0; margin-bottom: 40px; }
-  .contact-footer { border-left: none; padding-left: 0; }
-  .form-side { flex: 1; width: 100%; max-width: 500px; }
+.layout4-submit-btn:active {
+  transform: scale(0.99);
 }
-@media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .git-layout4 {
+    padding: 80px 0;
+  }
+  .layout4-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .layout4-accent-box {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .git-layout4 {
+    padding: 60px 0;
+  }
+  .layout4-container {
+    padding: 0 20px;
+  }
+  .layout4-form-container {
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+  .layout4-input-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

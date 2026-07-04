@@ -595,59 +595,63 @@ function App() {
 
 
 {/* ############### */}
-      <section className="get-in-touch">
-  <div className="container">
-    <div className="content-wrapper">
+      <section className="git-layout4">
+  {/* Background wrapper for the blur effect */}
+  <div className="layout4-bg-overlay"></div>
+  
+  <div className="layout4-container">
+    <div className="layout4-grid">
       
-      {/* LEFT SIDE */}
-      <div className="text-side">
-        <h2 className="professional-title">
-          Work <br />
-          <span className="gold-text">With Us</span>
-        </h2>
-        <p className="description-text">
-          Ready to turn your ideas into reality? <br />
-          Drop us a line and we'll take it from there.
-        </p>
-        <div className="contact-footer">
-          <p>Or email us at</p>
-          <a href="mailto:growth@storytailors.co.in" className="email-link">
-            growth@storytailors.co.in
+      {/* Left Info Panel */}
+      <div className="layout4-info">
+        <div className="layout4-accent-box">
+          <h2 className="layout4-heading">
+            Connect <br />
+            <span>With Us</span>
+          </h2>
+          <p className="layout4-text">
+            Ready to turn your ideas into reality? <br />
+            Drop us a line and we'll take it from there.
+          </p>
+        </div>
+        <div className="layout4-meta">
+          <span>Direct Contact</span>
+          <a href="mailto:goldenwiremedia2@gmail.com" className="layout4-email-link">
+            goldenwiremedia2@gmail.com
           </a>
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
-      <div className="form-side">
-        <form>
-          <div className="form-row">
-            <div className="field-group">
-              <input type="text" required placeholder='Full Name' />
+      {/* Right Form Panel */}
+      <div className="layout4-form-container">
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="layout4-input-grid">
+            <div className="layout4-field-group">
+              <input type="text" required placeholder="Full Name" />
             </div>
-            <div className="field-group">
-              <input type="text" placeholder='Job Title'/>
+            <div className="layout4-field-group">
+              <input type="text" placeholder="Job Title" />
+            </div>
+            <div className="layout4-field-group">
+              <input type="email" required placeholder="Work Email" />
+            </div>
+            <div className="layout4-field-group">
+              <input type="tel" required placeholder="Contact Number" />
+            </div>
+            <div className="layout4-field-group">
+              <input type="text" required placeholder="Company Name" />
+            </div>
+            <div className="layout4-field-group">
+              <input type="url" placeholder="Website URL" />
             </div>
           </div>
-          <div className="form-row">
-            <div className="field-group">
-              <input type="email" required placeholder='Work Email'/>
-            </div>
-            <div className="field-group">
-              <input type="tel" required  placeholder='Contact Number'/>
-            </div>
+          <div className="layout4-field-group">
+            <textarea placeholder="Message"></textarea>
           </div>
-          <div className="field-group">
-            <input type="text" required placeholder='Company Name'/>
-          </div>
-          <div className="field-group">
-            <input type="url"  placeholder='Website URL'/>
-          </div>
-          <div className="field-group">
-            <textarea placeholder='Mesage'></textarea>
-          </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="layout4-submit-btn">Submit Information</button>
         </form>
       </div>
+
     </div>
   </div>
 </section>
