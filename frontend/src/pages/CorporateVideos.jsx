@@ -237,7 +237,7 @@ function CorporateVideos() {
         <p class="main-desc">
           We craft <b>real, impactful documentaries</b> that bring authentic stories to life. From research and interviews to stunning visuals and compelling narratives, we create films that <b>inform, inspire, and engage.</b>
         </p>
-        <a href="#get-in-touch" class="btn-modern">
+        <a href="/contact" class="btn-modern">
           <span>Discuss Your Vision</span>
           <div class="arrow">→</div>
         </a>
@@ -363,7 +363,7 @@ function CorporateVideos() {
 
       {/* ####################### */}
 
-      <section className="cta-full-black" id="get-in-touch">
+      <section className="cta-full-black" id="get-in">
         <div className="cta-content">
           <h2 className="cta-title">
             Bring Your Brand Defining Story to Light
@@ -373,7 +373,7 @@ function CorporateVideos() {
             <br /> 
             documentary production and world-class storytelling.
           </p>
-          <a className="shapro-btn-modern" href="#contact-form">
+          <a className="shapro-btn-modern" href="/contact">
             <span>Let’s Get Started</span>
           </a>
         </div>
@@ -543,13 +543,12 @@ function CorporateVideos() {
                   <h4 className="footer-title-accent">The Studio</h4>
                   <div className="footer-contact-item">
                     <span className="contact-label">Inquiries</span>
-                    <a href="mailto:hello@goldenwirecreative.com" className="contact-value">hello@goldenwirecreative.com</a>
+                    <a href="mailto:hello@goldenwirecreative.com" className="contact-value">goldenwiremedia2@gmail.com</a>
                   </div>
                   <div className="footer-contact-item address-node">
                     <span className="contact-label">Headquarters</span>
                     <p className="contact-value-static">
-                      Golden Wire Suite, Visual Production Hub, <br />
-                      Patiala, Punjab, IN
+                      Ground floor, Shivalik A Block, A-89, Block A, Shivalik Colony, Malviya Nagar, New Delhi, Delhi 110017
                     </p>
                   </div>
                   
@@ -584,7 +583,7 @@ function CorporateVideos() {
             </div>
           </footer>
 
-      <WhatsAppButton />
+        <WhatsAppButton />
 
     </div>
   );

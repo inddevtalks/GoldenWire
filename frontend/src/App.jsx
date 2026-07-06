@@ -270,7 +270,7 @@ const [btsItems] = useState([
               Explore our diverse portfolio including Corporate films, TVCs, and Documentaries built across a wide range of global sectors.
             </p>
             <div className="header-action-left">
-              <a href="https://www.mediandesigns.com/portfolio/" target="_blank" rel="noreferrer" className="premium-explore-dark-btn">
+              <a href="#industries_we_excel" className="premium-explore-dark-btn">
                 <span>Explore All Works</span>
               </a>
             </div>
@@ -390,7 +390,7 @@ const [btsItems] = useState([
       
 
       {/* SECTION 5: PREMIUM LIGHT MATTE IVORY INDUSTRIES BLOCK GRID */}
-      <section className="editorial-industries-canvas-section">
+      <section className="editorial-industries-canvas-section" id="industries_we_excel">
         <div className="canvas-layout-container">
           
           <div className="canvas-section-header">
@@ -746,13 +746,12 @@ const [btsItems] = useState([
             <h4 className="footer-title-accent">The Studio</h4>
             <div className="footer-contact-item">
               <span className="contact-label">Inquiries</span>
-              <a href="mailto:hello@goldenwirecreative.com" className="contact-value">hello@goldenwirecreative.com</a>
+              <a href="mailto:hello@goldenwirecreative.com" className="contact-value">goldenwiremedia2@gmail.com</a>
             </div>
             <div className="footer-contact-item address-node">
               <span className="contact-label">Headquarters</span>
               <p className="contact-value-static">
-                Golden Wire Suite, Visual Production Hub, <br />
-                Patiala, Punjab, IN
+                Ground floor, Shivalik A Block, A-89, Block A, Shivalik Colony, Malviya Nagar, New Delhi, Delhi 110017
               </p>
             </div>
             

@@ -354,13 +354,12 @@ export default function About() {
                   <h4 className="footer-title-accent">The Studio</h4>
                   <div className="footer-contact-item">
                     <span className="contact-label">Inquiries</span>
-                    <a href="mailto:hello@goldenwirecreative.com" className="contact-value">hello@goldenwirecreative.com</a>
+                    <a href="mailto: goldenwiremedia2@gmail.com" className="contact-value">goldenwiremedia2@gmail.com</a>
                   </div>
                   <div className="footer-contact-item address-node">
                     <span className="contact-label">Headquarters</span>
                     <p className="contact-value-static">
-                      Golden Wire Suite, Visual Production Hub, <br />
-                      Patiala, Punjab, IN
+                      Ground floor, Shivalik A Block, A-89, Block A, Shivalik Colony, Malviya Nagar, New Delhi, Delhi 110017
                     </p>
                   </div>
                   
