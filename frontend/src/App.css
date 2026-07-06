@@ -2008,144 +2008,336 @@ html, body {
 /* ************************************************************************ */
 /* ########### why us  */
 
-.why-us-section {
-  padding: 100px 5%;
-  background: #ffffff;
-  font-family: 'Yeseva One' , Sans-Serif;
+/* ==========================================================================
+   COMPACT HIGH-DENSITY MEDIA MATRIX (REDUCED FOOTPRINT SYSTEM)
+   ========================================================================== */
+
+.media-anim-section {
+  padding: 60px 0; /* Reduced framing padding to eliminate unnecessary scrolling */
+  background: radial-gradient(circle at 50% 50%, #fbf5e6 0%, #f3e5c8 60%, #e9d5aa 100%);
+  overflow: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-.section-header {
+/* TOP-CENTER FIXED HEADLINE */
+.media-headline {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0 auto 40px auto;
   text-align: center;
-  margin-bottom: 80px;
 }
 
-.section-header h2 {
-  font-size: 3rem;
-  color: #1a1a1a;
-  margin-bottom: 15px;
+.media-headline::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #b58d3d, #8f6a23);
+  margin: 6px auto 0 auto;
+  border-radius: 2px;
 }
 
-.section-header p {
-  color: #666;
-  font-size: 1.2rem;
-}
-
-.why-us-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for a balanced look */
-  gap: 40px;
+/* GRID CONTAINER CONTROL BUFFER */
+.media-anim-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 42% 58%; /* Optimized visual split */
+  align-items: center;
+  gap: 40px;
 }
 
-.why-us-card {
-  padding: 30px;
-  border-left: 2px solid #d4af37; /* The professional gold accent */
-  background: #fcfcfc;
-  transition: all 0.3s ease;
-}
+/* ==========================================
+   LEFT COLUMN VISUAL SYSTEM (SCALED DOWN)
+   ========================================== */
 
-/* Subtle hover interaction */
-.why-us-card:hover {
-  background: #f8f8f8;
-  border-left-width: 6px; /* Increases the accent line width on hover */
-}
-
-.card-title {
-  font-size: 1.4rem;
-  color: #1a1a1a;
-  margin-bottom: 15px;
-}
-
-.card-desc {
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.7;
-}
-
-/* Responsive adjustment */
-@media (max-width: 900px) {
-  .why-us-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-  .why-us-grid { grid-template-columns: 1fr; }
-}
-
-
-/* ############# why us  */
-
-/* ============================
-   SERVICE ICON HOVER POP
-   ============================ */
-
-/* If services icons exist later, this will ensure a pop + dropdown/tooltip style on hover */
-.services-icon,
-.service-icon,
-.service-item {
+.media-visual-side {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 420px; /* Locked execution depth height */
   position: relative;
 }
 
-.services-popover,
-.service-popover {
+.pie-container {
+  position: relative;
+  width: 300px; /* Reduced to balance composition cleanly */
+  height: 300px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer-boundary-ring {
   position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translateX(-50%) translateY(8px);
-  min-width: 260px;
-  background: rgba(255, 255, 255, 0.98);
-  border: 1px solid rgba(184, 134, 11, 0.22);
-  box-shadow: 0 24px 70px rgba(184, 134, 11, 0.18);
-  border-radius: 16px;
-  padding: 14px 14px;
-  opacity: 0;
+  width: 290px;
+  height: 290px;
+  border: 1.5px dashed rgba(181, 141, 61, 0.35);
+  border-radius: 50%;
+  z-index: 0;
   pointer-events: none;
-  transition: opacity 180ms ease, transform 200ms ease;
-  z-index: 50;
 }
 
-/* Show popover on hover */
-.services-icon:hover .services-popover,
-.service-icon:hover .service-popover,
-.service-item:hover .service-popover {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+.pie-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 2;
 }
 
-.service-popover-list,
-.services-popover-list {
+/* ==========================================
+   TIMELINE STEPMOTOR STEPPING MECHANICS
+   ========================================== */
+
+.pie-slice-group {
+  transform-origin: 200px 200px;
+  opacity: 0;
+  animation: slicePieceAssemble 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--slice-index) * 0.7s);
+}
+
+.pie-slice-path {
+  fill: #ffffff;
+  stroke: #b58d3d;
+  stroke-width: 2px;
+}
+
+.pie-slice-group:nth-child(even) .pie-slice-path {
+  fill: #fffdf9;
+}
+
+.slice-icon-container {
+  overflow: visible;
+}
+
+.slice-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  opacity: 0;
+  transform: scale(0.3);
+  animation: sliceImagePopIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc((var(--slice-index) * 0.7s) + 0.25s);
+}
+
+/* ==========================================
+   POINTER TIMELINE LOCK CONFIGS
+   ========================================== */
+
+.outside-fact-card {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.pointer-line {
+  position: absolute;
+  background: #b58d3d;
+  transform: scaleX(0);
+  animation: expandPointerLine 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: calc((var(--slice-index) * 0.7s) + 0.5s);
+}
+
+.card-inner-pill {
+  background: #ffffff;
+  border: 1.5px solid #b58d3d;
+  border-radius: 10px;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 85px;
+  box-shadow: 0 8px 20px rgba(143, 106, 35, 0.12);
+  opacity: 0;
+  transform: scale(0.7) translateY(8px);
+  animation: factTextReveal 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.22) forwards;
+  animation-delay: calc((var(--slice-index) * 0.7s) + 0.65s);
+}
+
+.fact-badge {
+  font-size: 0.5rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #b58d3d, #8f6a23);
+  color: #ffffff;
+  padding: 1px 4px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.fact-num {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #000000;
+  line-height: 1.1;
+}
+
+.fact-lbl {
+  font-size: 0.6rem;
+  color: #8f6a23;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* REALIGNED SCALE FACTOR POLAR COORDINATES MAPS */
+.s1-info { top: 12%; right: -45px; }
+.line-s1 { width: 45px; height: 1.5px; top: 70%; left: -38px; transform-origin: left center; transform: rotate(20deg); }
+
+.s2-info { bottom: 12%; right: -45px; }
+.line-s2 { width: 45px; height: 1.5px; top: 30%; left: -38px; transform-origin: left center; transform: rotate(-20deg); }
+
+.s3-info { bottom: -25px; left: 50%; transform: translateX(-50%); }
+.line-s3 { width: 1.5px; height: 35px; top: -35px; left: 50%; transform-origin: top center; transform: scaleY(0); animation-name: expandVerticalLine; }
+
+.s4-info { bottom: 12%; left: -45px; }
+.line-s4 { width: 45px; height: 1.5px; top: 30%; right: -38px; transform-origin: right center; transform: rotate(20deg); }
+
+.s5-info { top: 12%; left: -45px; }
+.line-s5 { width: 45px; height: 1.5px; top: 70%; right: -38px; transform-origin: right center; transform: rotate(-20deg); }
+
+.s6-info { top: -25px; left: 50%; transform: translateX(-50%); }
+.line-s6 { width: 1.5px; height: 35px; bottom: -35px; left: 50%; transform-origin: bottom center; transform: scaleY(0); animation-name: expandVerticalLine; }
+
+.pie-center-shield {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b58d3d 0%, #8f6a23 100%);
+  border: 2px solid #ffffff;
+  z-index: 4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   RIGHT COLUMN CONTENT (OPTIMIZED SCROLL)
+   ========================================== */
+
+.media-content-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-mini-headline {
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin: 0 0 20px 0;
+}
+
+.premium-feature-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Tight high density gaps */
 }
 
-.service-popover-list li,
-.services-popover-list li {
-  font-size: 13.5px;
-  font-weight: 650;
-  color: #2d3436;
-  padding: 8px 10px;
-  border-radius: 12px;
-  background: rgba(255, 248, 230, 0.7);
-  border: 1px solid rgba(184, 134, 11, 0.14);
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  opacity: 0;
+  transform: translateX(25px);
+  animation: slideInFeatureBullet 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(4.2s + (var(--bullet-index) * 0.15s)); /* Seamless handoff sequence */
 }
 
-.service-popover-list li:hover,
-.services-popover-list li:hover {
-  border-color: rgba(212, 175, 55, 0.55);
-  box-shadow: 0 12px 30px rgba(184, 134, 11, 0.14);
+.bullet-node {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid #b58d3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3px;
+  flex-shrink: 0;
+  background: #ffffff;
 }
 
-/* Pop effect for the icon itself */
-.services-icon:hover,
-.service-icon:hover,
-.service-item:hover {
-  transform: translateY(-4px);
-  transition: transform 180ms ease;
+.bullet-inner-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b58d3d 0%, #8f6a23 100%);
+}
+
+.feature-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-item-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 2px 0;
+}
+
+.feature-item-desc {
+  font-size: 0.82rem;
+  color: #5c523d;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ==========================================
+   TIMELINE KEYFRAMES EXECUTIONS
+   ========================================== */
+
+@keyframes slicePieceAssemble {
+  0% { opacity: 0; transform: scale(0.7) rotate(-10deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes sliceImagePopIn {
+  0% { opacity: 0; transform: scale(0.4); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes expandPointerLine {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes expandVerticalLine {
+  0% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes factTextReveal {
+  0% { opacity: 0; transform: scale(0.8) translateY(6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes slideInFeatureBullet {
+  0% { opacity: 0; transform: translateX(25px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive Adaptive Optimization breakpoints */
+@media (max-width: 992px) {
+  .media-anim-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 24px;
+  }
+  .media-visual-side { justify-content: center; height: 340px; }
 }
 
 
@@ -2437,98 +2629,144 @@ html, body {
 }
 /* ##############  5 */
 
-/* 1. Ensure the parent container is truly full-width and centering everything */
-.cta-full-black {
-  width: 100%;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  padding: 120px 20px;
-  display: flex;             /* Use Flex here too */
-  justify-content: center;   /* Center horizontally */
-  align-items: center;       /* Center vertically */
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+.why-us-section {
+  padding: 100px 5%;
+  background: #ffffff;
+  font-family: 'Yeseva One' , Sans-Serif;
 }
 
-/* 2. Content wrapper acts as the strictly controlled center zone */
-.cta-content {
-  width: 100%;
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;      /* Forces children to middle */
-  justify-content: center;
+.section-header {
   text-align: center;
+  margin-bottom: 80px;
 }
 
-/* 3. Strip all default margins/paddings from elements */
-.cta-title {
-  margin: 0 !important;      /* FORCE REMOVAL of hidden margins */
-  padding: 0 !important;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 25px !important;
-  letter-spacing: -2px;
-  line-height: 1.1;
-  white-space: nowrap;
-  display: block;            /* Ensures it behaves as a block */
+.section-header h2 {
+  font-size: 3rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
 }
 
-.cta-desc {
-  margin: 0 0 50px 0 !important; /* Force margin control */
-  padding: 0 !important;
-  font-size: 1.4rem;
-  color: #aaaaaa;
-  line-height: 1.6;
-  max-width: 700px;
+.section-header p {
+  color: #666;
+  font-size: 1.2rem;
 }
 
-/* Update this specific class for your button */
-.shapro-btn-modern {
-  display: inline-block;
-  text-decoration: none;
-  
-  /* Text Styles */
-  color: #ffffff !important;         /* Pure white text */
-  text-transform: uppercase;         /* ALL CAPS */
-  font-weight: 700;                  /* Bold, similar to image */
-  font-family: sans-serif;           /* A clean, modern sans-serif */
-  letter-spacing: 0.5px;             /* Subtle letter spacing */
-  font-size: 1.1rem;                 /* Adjust size as needed */
-  text-align: center;
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for a balanced look */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  /* Button Shape (Pill shape) */
-  /* This value needs to be large to make the ends perfectly round, regardless of button size */
-  border-radius: 9999px;              
-  
-  /* Padding creates the correct inner space and shape */
-  padding: 20px 60px;               /* Vertical and horizontal padding */
-
-  /* Gradient Background from WhatsApp Image 2026-06-19 at 6.14.28 PM.jpeg */
-  /* Red-orange to lighter orange gradient, going towards the top-right */
-  background: linear-gradient(to top right, #f24e1e, #ff9933);
-
-  /* Border and shadows (Image has no border, but a slight soft glow) */
-  border: none;
-  box-shadow: 0 4px 15px rgba(242, 78, 30, 0.3); /* Soft, colored shadow */
-
-  /* Hover and transition effects */
+.why-us-card {
+  padding: 30px;
+  border-left: 2px solid #d4af37; /* The professional gold accent */
+  background: #fcfcfc;
   transition: all 0.3s ease;
-  cursor: pointer;
-  
-  /* Optional: Center the button if needed in a flex layout */
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* Add a slight hover effect */
-.shapro-btn-modern:hover {
-  /* Increase the gradient warmth on hover */
-  background: linear-gradient(to top right, #f24e1e, #ffaa4d);
-  
-  /* Lift and enhance shadow */
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(242, 78, 30, 0.4);
+/* Subtle hover interaction */
+.why-us-card:hover {
+  background: #f8f8f8;
+  border-left-width: 6px; /* Increases the accent line width on hover */
+}
+
+.card-title {
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.card-desc {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* Responsive adjustment */
+@media (max-width: 900px) {
+  .why-us-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .why-us-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ############# why us  */
+
+/* ============================
+   SERVICE ICON HOVER POP
+   ============================ */
+
+/* If services icons exist later, this will ensure a pop + dropdown/tooltip style on hover */
+.services-icon,
+.service-icon,
+.service-item {
+  position: relative;
+}
+
+.services-popover,
+.service-popover {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 260px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(184, 134, 11, 0.22);
+  box-shadow: 0 24px 70px rgba(184, 134, 11, 0.18);
+  border-radius: 16px;
+  padding: 14px 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 200ms ease;
+  z-index: 50;
+}
+
+/* Show popover on hover */
+.services-icon:hover .services-popover,
+.service-icon:hover .service-popover,
+.service-item:hover .service-popover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.service-popover-list,
+.services-popover-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.service-popover-list li,
+.services-popover-list li {
+  font-size: 13.5px;
+  font-weight: 650;
+  color: #2d3436;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255, 248, 230, 0.7);
+  border: 1px solid rgba(184, 134, 11, 0.14);
+}
+
+.service-popover-list li:hover,
+.services-popover-list li:hover {
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 12px 30px rgba(184, 134, 11, 0.14);
+}
+
+/* Pop effect for the icon itself */
+.services-icon:hover,
+.service-icon:hover,
+.service-item:hover {
+  transform: translateY(-4px);
+  transition: transform 180ms ease;
 }
 
 /* ############### 6 */
@@ -2608,8 +2846,30 @@ html, body {
   align-items: center;
   padding: 80px 0; 
   font-family: system-ui, -apple-system, sans-serif;
-  background: linear-gradient(135deg, #f4e3be 0%, #dfba6b 50%, #cfa34c 100%); 
   box-sizing: border-box;
+  
+  /* Required for the absolute positioned background layer */
+  position: relative;
+  overflow: hidden; 
+}
+
+/* Updated Deep Golden Gradient Background Layer */
+.contact-section-layout4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  /* Blends a subtle dark tint over a deeper, rich metallic gold palette to eliminate the blinding whiteness */
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    linear-gradient(135deg, #8a6f27 0%, #c5a044 30%, #e0bc62 50%, #b38728 75%, #735318 100%);
+  
+  filter: blur(4px); 
+  transform: scale(1.05); 
+  z-index: 1;
 }
 
 .contact-section-layout4 .layout4-container {
@@ -2618,6 +2878,10 @@ html, body {
   margin: 0 auto;
   padding: 0 24px;
   box-sizing: border-box;
+  
+  /* Keeps form and text safely above the background layer */
+  position: relative;
+  z-index: 2; 
 }
 
 .contact-section-layout4 .layout4-grid {
@@ -2629,10 +2893,12 @@ html, body {
 
 /* Left typography pane styling */
 .contact-section-layout4 .layout4-info-pane {
-  color: #111111; 
+  color: #ffffff; 
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  /* Optional text shadow fallback for absolute maximum readability */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .contact-section-layout4 .layout4-kicker {
@@ -2640,8 +2906,25 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.14em; 
   font-weight: 700;
-  color: #111111; /* Set to dark for crystal-clear readability against gold background */
+  color: #111111; 
   margin: 0 0 14px 0;
+  display: inline-block; 
+  padding: 2px 6px; 
+}
+
+.layout4-kicker {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em; 
+  font-weight: 700;
+  color: #111111; 
+  margin: 0 0 14px 0;
+  background: #f1c40f; /* Slightly boosted for pop */
+  width: fit-content;
+  display: block; 
+  padding: 4px 8px; 
+  border-radius: 4px; 
+  text-shadow: none;
 }
 
 .contact-section-layout4 .layout4-headline {
@@ -2649,18 +2932,18 @@ html, body {
   font-weight: 800;
   line-height: 1.25; 
   letter-spacing: -0.015em;
-  color: #111111;
+  color: #ffffff;
   margin: 0 0 18px 0; 
 }
 
 .contact-section-layout4 .layout4-headline span {
-  color: #ffffff; /* Contrast accent color on gold backdrop */
+  color: #ffe699; /* Soft, readable warm gold accent text */
 }
 
 .contact-section-layout4 .layout4-paragraph {
   font-size: 0.95rem;
   line-height: 1.65; 
-  color: #222222; 
+  color: #f5f5f5; /* Clean off-white for excellent body contrast */
   margin: 0; 
 }
 
@@ -2699,8 +2982,8 @@ html, body {
 .contact-section-layout4 .layout4-form-pane input {
   width: 100%;
   padding: 14px 14px; 
-  background: rgba(255, 255, 255, 0.85); /* Slightly boosted opacity to contrast beautifully over gold */
-  border: 1px solid #111111; 
+  background: rgba(255, 255, 255, 0.9); 
+  border: 2px solid #b38728; 
   border-radius: 4px;
   font-size: 0.9rem; 
   color: #111111;
@@ -2712,8 +2995,8 @@ html, body {
 .contact-section-layout4 .layout4-form-pane textarea {
   width: 100%;
   padding: 14px 14px;
-  background: rgba(255, 255, 255, 0.85); 
-  border: 1px solid #111111; 
+  background: rgba(255, 255, 255, 0.9); 
+  border: 2px solid #b38728; 
   border-radius: 4px;
   font-size: 0.9rem; 
   color: #111111;
@@ -2733,11 +3016,11 @@ html, body {
 .contact-section-layout4 .layout4-form-pane input:focus,
 .contact-section-layout4 .layout4-form-pane textarea:focus {
   background: #ffffff;
-  border-color: #000000;
-  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.1);
+  border-color: #f1c40f;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
-/* Submit action configuration with border footprint and transparent backdrop */
+/* Submit action configuration */
 .contact-section-layout4 .ov-submit-btn-layout4 {
   background: transparent; 
   color: #111111; 
@@ -2752,12 +3035,14 @@ html, body {
   cursor: pointer;
   transition: all 0.2s ease;
   margin-top: 4px;
+  border-color: #ffffff;
+  background-color: #e6b800;
 }
 
 .contact-section-layout4 .ov-submit-btn-layout4:hover {
-  background: #111111;
+  background: #cc9900;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.15);
+  border-color: #cc9900;
 }
 
 /* Responsive Adaptive Setup */

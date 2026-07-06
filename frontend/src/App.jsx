@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css'; 
-
+import { Link } from 'react-router-dom';
 // Local Main Hero Video Asset (Keep or substitute with placeholder link if needed)
 import homepageVideo from './assets/videos/homepage-banner.mp4';
 
@@ -21,7 +21,7 @@ function App() {
 
   // 2. BRAND ALLIANCES (TIER A)
   const [clientsTierA] = useState([
-    { id: 'a1', name: 'Nike', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/1200px-Logo_NIKE.svg.png' },
+    { id: 'a1', name: 'Lucknow Metro', logoUrl: 'data:image/png;base64,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' },
     { id: 'a2', name: 'Apple', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/800px-Apple_logo_black.svg.png' },
     { id: 'a3', name: 'Mercedes-Benz', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Benz_Logo_2010.svg/1024px-Mercedes-Benz_Logo_2010.svg.png' },
     { id: 'a4', name: 'Sony', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png' },
@@ -118,6 +118,8 @@ function App() {
     { title: "Bespoke Automation", desc: "Backend logistics tailored to your specific business intelligence needs." }
   ];
 
+
+
   useEffect(() => {
     startAutoRotation();
     return () => stopAutoRotation();
@@ -181,21 +183,27 @@ function App() {
 
           {/* Navigation Links Menu */}
           <nav className={`nav-menu ${isMenuOpen ? 'mobile-open' : ''}`}>
-            <a href="#home" className="nav-link" onClick={closeMenu}>Home</a>
-            <a href="#expertise-wall-section" className="nav-link active" onClick={closeMenu}>About Us</a>
+            {/* Base Pages */}
+            <Link to="/" className="nav-link active" onClick={closeMenu}>Home</Link>
+            <Link to="/about" className="nav-link" onClick={closeMenu}>About Us</Link>
             
-            {/* Embedded Services Navigation Dropdown Drop Item */}
+            {/* Services Dropdown updated with your explicit page routes */}
             <div className="nav-dropdown">
-              <a href="#bts-vault-anchor" className="nav-link">Services</a>
+              <span className="nav-link" style={{ cursor: 'pointer' }}>Services</span>
               <div className="services-dropdown">
-                <a href="#ad-films" onClick={closeMenu}>Ad Films</a>
-                <a href="#brand-films" onClick={closeMenu}>Brand Films</a>
-                <a href="#corporate" onClick={closeMenu}>Corporate Videos</a>
+                <Link to="/documentary" onClick={closeMenu}>Documentary</Link>
+                <Link to="/corporate-videos" onClick={closeMenu}>Corporate Videos</Link>
+                <Link to="/video-podcast" onClick={closeMenu}>Video Podcast</Link>
+                <Link to="/drone-videography" onClick={closeMenu}>Drone Videography</Link>
+                <Link to="/event-videography" onClick={closeMenu}>Event Videography</Link>
+                <Link to="/social-media-videos" onClick={closeMenu}>Social Media Videos</Link>
+                <Link to="/photoshoots" onClick={closeMenu}>Photoshoots</Link>
               </div>
             </div>
 
-            <a href="#testimonials-marquee-section" className="nav-link" onClick={closeMenu}>Blogs</a>
-            <a href="#contact-editorial-anchor" className="nav-link" onClick={closeMenu}>Contact</a>
+            {/* Dedicated Component Routes */}
+            <Link to="/blogs" className="nav-link" onClick={closeMenu}>Blogs</Link>
+            <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
           </nav>
 
         </div>
@@ -225,7 +233,7 @@ function App() {
           </p>
           <div className="hero-action-row">
             <a href="#bts-vault-anchor" className="premium-cta-btn">
-              <span>Explore BTS Vault</span>
+              <span>Explore BTS</span>
             </a>
           </div>
         </div>
@@ -566,7 +574,6 @@ function App() {
 
 
 {/* ########### */}
-
 <section className="why-us-section">
   <div className="container">
     <div className="section-header">
@@ -682,8 +689,6 @@ function App() {
           <div className="footer-top-distributor-row">
             <div className="footer-brand-summary-cell">
               <div className="site-logo">
-                <span className="logo-icon">✦</span>
-                <div className="logo-text">GOLDEN <span className="gold-accent">WIRE</span></div>
               </div>
               <p className="brand-meta-abstract-prose">
                 An elite high-fidelity visual architecture studio engineering high-impact revenue videos, automated multi-track video players, and global cinematic ad film campaigns.
