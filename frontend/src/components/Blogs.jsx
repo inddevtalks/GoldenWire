@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import homepageVideo from "../assets/videos/homepage-banner.mp4";
 import "./Blogs.css";
+import WhatsAppButton from './WhatsAppButton';
 
 const blogData = [
   {
@@ -325,7 +326,7 @@ const Blogs = () => {
       
             </div>
           </footer>
-
+        <WhatsAppButton />
     </div>
   );
 };

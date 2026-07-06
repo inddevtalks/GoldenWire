@@ -3,7 +3,7 @@ import './App.css';
 import { Link } from 'react-router-dom';
 // Local Main Hero Video Asset (Keep or substitute with placeholder link if needed)
 import homepageVideo from './assets/videos/homepage-banner.mp4';
-
+import WhatsAppButton from './components/WhatsAppButton'; // 1. Import it
 function App() {
   // Navigation Menu Responsive Toggle State
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -806,6 +806,8 @@ const [btsItems] = useState([
           </div>
         </div>
       )}
+
+      <WhatsAppButton />
 
     </div>
   );

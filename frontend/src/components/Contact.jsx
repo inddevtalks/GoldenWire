@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Contact.css";
 import { Link } from "react-router-dom";
 import "../App.css";
+import WhatsAppButton from './WhatsAppButton';
 
 /* ── Data ── */
 const STATS = [
@@ -14,47 +15,25 @@ const STATS = [
 const INFO_CARDS = [
   {
     label: "Email Us",
-    value: "editorial@yourmedia.com",
+    value: "goldenwiremedia2@gmail.com",
     note: "For press enquiries & partnerships",
     img: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=80&h=80&fit=crop&q=80",
   },
   {
     label: "Call Us",
-    value: "+91 98765 43210",
+    value: "+91-8077369216",
     note: "Mon – Fri, 9 AM – 6 PM IST",
     img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=80&h=80&fit=crop&q=80",
   },
   {
     label: "Newsroom",
-    value: "Sector 17, Chandigarh\nPunjab, India – 160017",
+    value: "Ground floor, Shivalik A Block, A-89, Block A, Shivalik Colony, Malviya Nagar, New Delhi, Delhi 110017",
     note: "Visits by appointment only",
     img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=80&h=80&fit=crop&q=80",
   },
 ];
 
-const DEPARTMENTS = [
-  {
-    title: "Editorial Team",
-    desc:
-      "Reach our editors for story tips, corrections, or collaboration on investigative pieces and feature submissions.",
-    email: "editorial@yourmedia.com",
-    img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=360&fit=crop&q=80",
-  },
-  {
-    title: "Advertising & Partnerships",
-    desc:
-      "Explore brand integrations, sponsored content, display advertising, and long-term media partnership opportunities.",
-    email: "advertising@yourmedia.com",
-    img: "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=360&fit=crop&q=80",
-  },
-  {
-    title: "Technical Support",
-    desc:
-      "Report issues with subscriptions, app access, broken links, or any other technical problem on our platforms.",
-    email: "support@yourmedia.com",
-    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=360&fit=crop&q=80",
-  },
-];
+
 
 const SUBJECTS = [
   "Select a topic",
@@ -68,24 +47,24 @@ const SUBJECTS = [
 
 const FAQS = [
   {
-    q: "How quickly will I receive a response?",
-    a: "Our team aims to respond to all messages within 24 business hours. For urgent editorial matters, please call us directly during office hours.",
+    q: " What services does Goldenwire provide?",
+    a: "We are a full-service production house specializing in cinema-grade video content. Our services include end-to-end management of Corporate & Brand Films, Event Coverage, CSR & Rural Impact Documentaries, and specialized promotional videos for the healthcare, real estate, cleantech, and education sectors.",
   },
   {
-    q: "How do I submit a story tip or press release?",
-    a: "Send your tip or release directly to editorial@yourmedia.com. Include a brief summary in the subject line. Our editors review all submissions but can only respond to those selected for coverage.",
+    q: "What is your production process?",
+    a: "We operate a seamless, three-phase workflow:\n1.	Pre-Production: Scripting, storyboarding, and narrative strategy.\n2.	Production: On-ground filming using cinema-grade configurations, professional crews, and specialized lighting.\n3.	Post-Production: In-house editing, precision color grading, and multi-track sound design.",
   },
   {
-    q: "How can I advertise with your publication?",
-    a: "We offer a range of advertising solutions including display ads, sponsored articles, newsletter placements, and video partnerships. Contact advertising@yourmedia.com for our current media kit and rate card.",
+    q: "Do you handle on-location and rural field shoots?",
+    a: "Yes. Our production crew and Directors of Photography (DoPs) are highly experienced in challenging, remote field environments. We manage all logistics and mobile equipment setups to deliver premium, broadcast-ready visuals regardless of the location.",
   },
   {
-    q: "Can I request a correction to a published article?",
-    a: "Yes. We take accuracy seriously. Email the article link and the specific correction to editorial@yourmedia.com with the subject line 'Correction Request'. We'll review and respond within 48 hours.",
+    q: "How do you ensure the video aligns with our brand guidelines?",
+    a: "Our marketing and sales heads collaborate directly with your team during pre-production. We analyze your commercial goals, audience demographics, and core messaging to ensure the visual flow and narrative structure perfectly match your brand identity.",
   },
   {
-    q: "Do you offer internships or freelance opportunities?",
-    a: "We welcome applications from talented writers, photographers, and media professionals. Send your portfolio and a brief introduction to careers@yourmedia.com.",
+    q: "How can we get a project quotation or commercial proposal?",
+    a: "You can request a tailored commercial proposal using the contact form above. Please share your expected project duration, location, and baseline goals, and our sales desk will deliver a customized timeline and budget roadmap.",
   },
 ];
 
@@ -251,13 +230,10 @@ export default function Contact() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="subject">Department / Topic</label>
-                  <select id="subject" name="subject" value={form.subject}
-                    onChange={handleChange} required>
-                    {SUBJECTS.map((s) => (
-                      <option key={s} value={s === "Select a topic" ? "" : s}>{s}</option>
-                    ))}
-                  </select>
+                  <label htmlFor="subject">Website Url</label>
+                  <input id="web_url" name="web_url" type="text"
+                      placeholder="eg.com" value={form.web_url}
+                      onChange={handleChange} />
                 </div>
 
                 <div className="form-group">
@@ -280,12 +256,10 @@ export default function Contact() {
 
           <div className="sidebar-img-card">
             <img
-              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&h=400&fit=crop&q=80"
+              src="/contact/1.jpeg"
               alt="Our office"
             />
-            <div className="sidebar-img-overlay">
-              <span className="sidebar-img-text">Our Chandigarh Newsroom</span>
-            </div>
+
           </div>
 
           {INFO_CARDS.map((card) => (
@@ -309,7 +283,7 @@ export default function Contact() {
         <div className="location-inner">
           <div className="location-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop&q=80"
+              src="/contact/1.jpeg"
               alt="Chandigarh office building"
             />
           </div>
@@ -322,7 +296,7 @@ export default function Contact() {
             <div className="location-info-item">
               <p className="location-info-title">Address</p>
               <p className="location-info-val">
-                {"3rd Floor, Media Tower\nSector 17–B, Chandigarh\nPunjab, India – 160017"}
+                {"Ground floor, Shivalik A Block, A-89, Block A, Shivalik Colony, Malviya Nagar, New Delhi, Delhi 110017"}
               </p>
             </div>
 
@@ -333,15 +307,8 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="location-info-item">
-              <p className="location-info-title">Nearest Landmark</p>
-              <p className="location-info-val">
-                2 min walk from Sector 17 Bus Terminus
-              </p>
-            </div>
-
             <a
-              href="https://maps.google.com"
+              href="https://maps.app.goo.gl/XVkua2vWWxMwDcDk8"
               target="_blank"
               rel="noopener noreferrer"
               className="directions-btn"
@@ -473,6 +440,8 @@ export default function Contact() {
       
             </div>
           </footer>
+
+        <WhatsAppButton />
 
     </div>
 

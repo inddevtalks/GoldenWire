@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./About.css";
 import "../App.css";
 import { Link } from "react-router-dom";
-
+import WhatsAppButton from './WhatsAppButton';
 
 /* ── Data ── */
 const STATS = [
@@ -299,7 +299,7 @@ export default function About() {
             reporting on the stories that shape the region.
           </p>
           <div className="cta-buttons">
-            <a href="/subscribe" className="cta-btn-primary">
+            <a href="/contact" className="cta-btn-primary">
               Subscribe Now
             </a>
             <a href="/contact" className="cta-btn-outline">
@@ -394,7 +394,7 @@ export default function About() {
       
             </div>
           </footer>
-
+        <WhatsAppButton />
     </div>
   );
 }

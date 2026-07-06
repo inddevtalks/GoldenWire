@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 import "../App.css";
 import homepageVideo from "../assets/videos/homepage-banner.mp4";
+import WhatsAppButton from '../components/WhatsAppButton'; // 1. Import it
 
 function CorporateVideos() {
   const ourWork = [
@@ -582,6 +583,7 @@ function CorporateVideos() {
       
             </div>
           </footer>
+      <WhatsAppButton />
 
     </div>
   );
