@@ -90,42 +90,66 @@ const blogData = [
 const Blogs = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+  
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="homepage-root">
 
-      <header className="site-header">
-        <div className="nav-container">
-            <a href="#home" className="site-logo">
-            <span className="logo-icon">✦</span>
-            <div className="logo-text">GOLDEN <span className="gold-accent">WIRE</span></div>
-            </a>
-          <nav className="nav-menu">
-                          <a href="/" className="nav-link">Home</a>
-                          <Link to="/about" className="nav-link">About</Link>
-                          
-                          <div className="nav-dropdown">
-                            <a href="#bts-vault-anchor" className="nav-link">
-                              Services
-                            </a>
-              
-                            <div className="services-dropdown">
-                              <Link to="/documentary">Documentary</Link>
-                              <Link to="/corporate-videos">Corporate Videos</Link>
-                              <Link to="/video-podcast">Video Podcast</Link>
-                              <Link to="/drone-videography">Drone Videography</Link>
-                              <Link to="/event-videography">Event Videography</Link>
-                              <Link to="/social-media-videos">Social Media Videos</Link>
-                              <Link to="/photoshoots">Photoshoots</Link>
-                            </div>
-                          </div>
-                          
-                          {/* Change this from an anchor tag to a React Router Link */}
-                          <Link to="/blogs" className="nav-link">Blogs</Link>
-                          
-                          <Link to="/contact" className="nav-link">Contact</Link>
-                      </nav>
-        </div>
-    </header>
+      {/* GLOBAL SYSTEM NAVIGATION */}
+            <header className="site-header">
+              <div className="nav-container">
+                
+                {/* Logo Section with Image Link */}
+                <a href="#home" className="site-logo" onClick={closeMenu}>
+                  <img src="/logo/1.png" alt="Golden Wire Logo" className="logo-img" />
+                </a>
+      
+                {/* Responsive Hamburger Toggle Button */}
+                <button 
+                  className={`hamburger-btn ${isMenuOpen ? 'active' : ''}`} 
+                  onClick={toggleMenu}
+                  aria-label="Toggle navigation menu"
+                >
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                </button>
+      
+                {/* Navigation Links Menu */}
+                <nav className={`nav-menu ${isMenuOpen ? 'mobile-open' : ''}`}>
+                  {/* Base Pages */}
+                  <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
+                  <Link to="/about" className="nav-link" onClick={closeMenu}>About Us</Link>
+                  
+                  {/* Services Dropdown updated with your explicit page routes */}
+                  <div className="nav-dropdown">
+                    <span className="nav-link" style={{ cursor: 'pointer' }}>Services</span>
+                    <div className="services-dropdown">
+                      <Link to="/documentary" onClick={closeMenu}>Documentary</Link>
+                      <Link to="/corporate-videos" onClick={closeMenu}>Corporate Videos</Link>
+                      <Link to="/video-podcast" onClick={closeMenu}>Video Podcast</Link>
+                      <Link to="/drone-videography" onClick={closeMenu}>Drone Videography</Link>
+                      <Link to="/event-videography" onClick={closeMenu}>Event Videography</Link>
+                      <Link to="/social-media-videos" onClick={closeMenu}>Social Media Videos</Link>
+                      <Link to="/photoshoots" onClick={closeMenu}>Photoshoots</Link>
+                    </div>
+                  </div>
+      
+                  {/* Dedicated Component Routes */}
+                  <Link to="/blogs" className="nav-link active" onClick={closeMenu}>Blogs</Link>
+                  <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
+                </nav>
+      
+              </div>
+            </header>
       
 
       {/* HERO */}
@@ -215,66 +239,91 @@ const Blogs = () => {
         </div>
       )}
 
-      {/* FOOTER */}
-      <footer className="corporate-system-footer-anchor">
-        <div className="footer-layout-container">
-          
-          <div className="footer-top-distributor-row">
-            <div className="footer-brand-summary-cell">
-              <div className="site-logo">
-                <span className="logo-icon">✦</span>
-                <div className="logo-text">GOLDEN <span className="gold-accent">WIRE</span></div>
+      {/* NEW SECTION 9: CORPORATE FOOTER MATRICES SYSTEM */}
+            <footer className="golden-cinema-footer">
+            <div className="footer-container">
+              
+              {/* Top Grid Area */}
+              <div className="footer-main-grid">
+                
+                {/* Brand Column */}
+                <div className="footer-brand-column">
+                  <Link to="/" className="footer-logo">
+                    <img src="/logo/1.png" alt="Golden Wire Logo" className="footer-logo-img" />
+                  </Link>
+                  <p className="footer-brand-pitch">
+                    An elite high-fidelity visual architecture studio engineering high-impact revenue videos, interactive multi-track players, and global cinematic ad campaigns.
+                  </p>
+                </div>
+      
+                {/* Quick Links Column */}
+                <div className="footer-links-column">
+                  <h4 className="footer-title-accent">Explore</h4>
+                  <ul className="footer-nav-list">
+                    <li><Link to="/">Home Base</Link></li>
+                    <li><Link to="/about">Our Story</Link></li>
+                    <li><Link to="/blogs">Insights & Blogs</Link></li>
+                    <li><Link to="/contact">Get In Touch</Link></li>
+                  </ul>
+                </div>
+      
+                {/* Services Matrix Column */}
+                <div className="footer-links-column">
+                  <h4 className="footer-title-accent">Services</h4>
+                  <ul className="footer-nav-list">
+                    <li><Link to="/documentary">Documentary Film</Link></li>
+                    <li><Link to="/corporate-videos">Corporate Masterpieces</Link></li>
+                    <li><Link to="/video-podcast">Video Podcasts</Link></li>
+                    <li><Link to="/drone-videography">Drone & Aerials</Link></li>
+                    <li><Link to="/social-media-videos">Social Reels</Link></li>
+                  </ul>
+                </div>
+      
+                {/* Studio Connections Column */}
+                <div className="footer-links-column contacts-column">
+                  <h4 className="footer-title-accent">The Studio</h4>
+                  <div className="footer-contact-item">
+                    <span className="contact-label">Inquiries</span>
+                    <a href="mailto:hello@goldenwirecreative.com" className="contact-value">hello@goldenwirecreative.com</a>
+                  </div>
+                  <div className="footer-contact-item address-node">
+                    <span className="contact-label">Headquarters</span>
+                    <p className="contact-value-static">
+                      Golden Wire Suite, Visual Production Hub, <br />
+                      Patiala, Punjab, IN
+                    </p>
+                  </div>
+                  
+                  {/* Embedded Pure SVG Social Actions */}
+                  <div className="footer-social-wrap">
+                    <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                  </div>
+                </div>
+      
               </div>
-              <p className="brand-meta-abstract-prose">
-                An elite high-fidelity visual architecture studio engineering high-impact revenue videos, automated multi-track video players, and global cinematic ad film campaigns.
-              </p>
+      
+              {/* Bottom Clearance Bar */}
+              <div className="footer-bottom-bar">
+                <p className="footer-copyright-text">
+                  &copy; {new Date().getFullYear()} GOLDEN WIRE CREATIVE INC. ALL RIGHTS RESERVED. IN CO-ALLIANCE WITH INDDEVTALKS INFRASTRUCTURE.
+                </p>
+                <div className="footer-legal-links">
+                  <Link to="/privacy">Privacy Protocol</Link>
+                  <span className="legal-divider">•</span>
+                  <Link to="/terms">Terms of Asset Usage</Link>
+                </div>
+              </div>
+      
             </div>
-
-            <div className="footer-navigation-links-matrix-cell">
-              <h5 className="matrix-column-title">System Portals</h5>
-              <ul className="matrix-links-list">
-                <li><a href="#home">Home Base</a></li>
-                <li><a href="#expertise-wall-section">Portfolio Matrix</a></li>
-                <li><a href="#bts-vault-anchor">Studio Action Vault</a></li>
-                <li><a href="#testimonials-marquee-section">Client Perspectives</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-navigation-links-matrix-cell">
-              <h5 className="matrix-column-title">Domain Expertise</h5>
-              <ul className="matrix-links-list">
-                <li><a href="#expertise-wall-section">Ad Films Production</a></li>
-                <li><a href="#expertise-wall-section">SaaS Explainer Assets</a></li>
-                <li><a href="#expertise-wall-section">Fintech Visual Identity</a></li>
-                <li><a href="#expertise-wall-section">Heavy Industrial Logs</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-navigation-links-matrix-cell">
-              <h5 className="matrix-column-title">Operational Hubs</h5>
-              <ul className="matrix-links-list">
-                <li><span className="static-hub-node">Mumbai, IN Hub</span></li>
-                <li><span className="static-hub-node">New York, US Node</span></li>
-                <li><span className="static-hub-node">London, UK Sector</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="footer-copyright-security-clearance-bar">
-            <p className="copyright-notice-text">
-              &copy; {new Date().getFullYear()} GOLDEN WIRE CREATIVE INC. ALL RIGHTS RESERVED. IN CO-ALLIANCE WITH INDDEVTALKS INFRASTRUCTURE.
-            </p>
-            <div className="footer-security-regulatory-links">
-              <a href="#home" className="regulatory-link">Data Privacy Protocol</a>
-              <span className="regulatory-divider">//</span>
-              <a href="#home" className="regulatory-link">Terms of Asset Usage</a>
-              <span className="regulatory-divider">//</span>
-              <a href="#home" className="regulatory-link">System Ledger Log</a>
-            </div>
-          </div>
-
-        </div>
-      </footer>
+          </footer>
 
     </div>
   );

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 /* ── Design Tokens (mirror Contact page) ── */
 :root {
   --gold:         #C9952A;
@@ -13,8 +12,8 @@
   --ink-mid:      #444444;
   --ink-muted:    #777777;
   --border:       #E4E0D8;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  --font-display: 'jost', sans-serif;
+  --font-body:    'jost', sans-serif;
   --radius:       12px;
 }
 
