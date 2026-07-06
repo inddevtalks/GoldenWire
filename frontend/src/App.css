@@ -2532,17 +2532,18 @@ html, body {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #ff4500;
+  color: #070505;
   font-size: 0.8rem;
   font-weight: bold;
+  background-color: gold;
 }
-.main-heading {
+.main-head {
   font-size: 3.5rem;
   line-height: 1.1;
   margin: 20px 0;
-  color: #ece862;
+  color: white;
 }
-.main-heading span { color: #f3eeee; }
+.main-head span { color: gold; }
 .main-desc {
   font-size: 1.2rem;
   line-height: 1.7;

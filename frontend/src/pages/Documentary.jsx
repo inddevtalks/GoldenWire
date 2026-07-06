@@ -65,6 +65,7 @@ function CorporateVideos() {
 
       <header className="site-header">
               <div className="nav-container">
+                <title>Golden Wire</title>
                 
                 {/* Logo Section with Image Link */}
                 <a href="#home" className="site-logo" onClick={closeMenu}>
@@ -231,7 +232,7 @@ function CorporateVideos() {
 
       <div class="content-side">
         <span class="eyebrow">Our Process</span>
-        <h2 class="main-heading">Documentary Film <br /><span>Services</span></h2>
+        <h2 class="main-head">Documentary Film <br /><span>Services</span></h2>
         <p class="main-desc">
           We craft <b>real, impactful documentaries</b> that bring authentic stories to life. From research and interviews to stunning visuals and compelling narratives, we create films that <b>inform, inspire, and engage.</b>
         </p>

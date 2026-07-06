@@ -106,6 +106,7 @@ const Blogs = () => {
       {/* GLOBAL SYSTEM NAVIGATION */}
             <header className="site-header">
               <div className="nav-container">
+              <title>Golden Wire</title>
                 
                 {/* Logo Section with Image Link */}
                 <a href="#home" className="site-logo" onClick={closeMenu}>

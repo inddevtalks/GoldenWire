@@ -152,6 +152,7 @@ export default function About() {
         {/* GLOBAL SYSTEM NAVIGATION */}
               <header className="site-header">
                 <div className="nav-container">
+                <title>Golden Wire</title>
                   
                   {/* Logo Section with Image Link */}
                   <a href="#home" className="site-logo" onClick={closeMenu}>
@@ -256,12 +257,12 @@ export default function About() {
           <div className="team-header">
             <span className="section-label">The Team</span>
             <h2 className="section-heading" style={{ marginBottom: 8 }}>
-              The Journalists Behind the Stories
+              The Team Behind the Stories
             </h2>
             <hr className="divider" />
             <p className="section-sub" style={{ maxWidth: 480 }}>
               A lean, experienced team of reporters, editors, and digital
-              journalists — all committed to the same standard of work.
+              team — all committed to the same standard of work.
             </p>
           </div>
           <div className="team-grid">

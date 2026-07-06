@@ -163,6 +163,7 @@ function App() {
       
       {/* GLOBAL SYSTEM NAVIGATION */}
       <header className="site-header">
+        <title>Golden Wire</title>
         <div className="nav-container">
           
           {/* Logo Section with Image Link */}
