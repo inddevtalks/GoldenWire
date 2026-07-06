@@ -22,54 +22,29 @@ function App() {
   // 2. BRAND ALLIANCES (TIER A)
   const [clientsTierA] = useState([
     { id: 'a1', name: 'Lucknow Metro', logoUrl: 'data:image/png;base64,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' },
-    { id: 'a2', name: 'Apple', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/800px-Apple_logo_black.svg.png' },
-    { id: 'a3', name: 'Mercedes-Benz', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Benz_Logo_2010.svg/1024px-Mercedes-Benz_Logo_2010.svg.png' },
-    { id: 'a4', name: 'Sony', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/1024px-Sony_logo.svg.png' },
-    { id: 'a5', name: 'Netflix', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png' },
-    { id: 'a6', name: 'Canon', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Canon_logo.svg/1280px-Canon_logo.svg.png' },
-    { id: 'a7', name: 'Samsung', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/1280px-Samsung_Logo.svg.png' },
-    { id: 'a8', name: 'Porsche', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Porsche_Wordmark.svg/1280px-Porsche_Wordmark.svg.png' },
-    { id: 'a9', name: 'Intel', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Intel-logo.svg/1280px-Intel-logo.svg.png' },
-    { id: 'a10', name: 'Red Bull', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Red_Bull_Logo.svg/1280px-Red_Bull_Logo.svg.png' }
+    { id: 'a2', name: 'Asics', logoUrl: '/partner_logo/1.jpeg' },
+    { id: 'a3', name: 'Nestle', logoUrl: '/partner_logo/2.jpeg' },
+    { id: 'a4', name: 'Pratham', logoUrl: '/partner_logo/3.jpeg' },
+    { id: 'a5', name: 'Raymond', logoUrl: '/partner_logo/4.jpeg' },
+    { id: 'a6', name: 'Siemons', logoUrl: '/partner_logo/5.jpeg' },
   ]);
 
   // BRAND ALLIANCES (TIER B)
   const [clientsTierB] = useState([
-    { id: 'b1', name: 'Audi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/1280px-Audi-Logo_2016.svg.png' },
-    { id: 'b2', name: 'Disney', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Walt_Disney_Pictures_logo.svg/1280px-Walt_Disney_Pictures_logo.svg.png' },
-    { id: 'b3', name: 'Google', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1280px-Google_2015_logo.svg.png' },
-    { id: 'b4', name: 'Amazon', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png' },
-    { id: 'b5', name: 'Coca-Cola', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo_2015.svg/1280px-Coca-Cola_logo_2015.svg.png' },
-    { id: 'b6', name: 'Panasonic', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Panasonic_logo.svg/1280px-Panasonic_logo.svg.png' },
-    { id: 'b7', name: 'Siemens', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Siemens-logo.svg/1280px-Siemens-logo.svg.png' },
-    { id: 'b8', name: 'Hyundai', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hyundai_Motor_Company_logo.svg/1280px-Hyundai_Motor_Company_logo.svg.png' },
-    { id: 'b9', name: 'Yamaha', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yamaha_logo.svg/1280px-Yamaha_logo.svg.png' },
-    { id: 'b10', name: 'Shell', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Shell_logo.svg/1024px-Shell_logo.svg.png' }
+    { id: 'a1', name: 'AIF', logoUrl: '/partner_logo/6.jpeg' },
+    { id: 'a2', name: 'SatyamShivamSundaram', logoUrl: '/partner_logo/7.jpeg' },
+    { id: 'a3', name: 'NTPC', logoUrl: '/partner_logo/8.jpeg' },
+    { id: 'a4', name: 'LOHUM', logoUrl: '/partner_logo/9.jpeg' },
+    { id: 'a5', name: 'Raymond', logoUrl: '/partner_logo/10.jpeg' },
+    { id: 'a6', name: 'MercedesBenz', logoUrl: '/partner_logo/11.jpeg' },
   ]);
 
-  // 3. DISCOVER OUR EXPERTISE MOSAIC ARRAY
-  const [expertiseServices] = useState([
-    { title: 'Ad Films', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/ad-films-v1.webp' },
-    { title: 'Brand Films', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/brand-films.webp' },
-    { title: 'Corporate Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/corporate-videos.webp' },
-    { title: 'Explainer Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/explainer-videos.webp' },
-    { title: '2D Animation Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/animation-video.webp' },
-    { title: 'Video Podcast', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/podcast-video.webp' },
-    { title: 'Documentary Films', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/documentry-film.webp' },
-    { title: 'Testimonial Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/testimonial.webp' },
-    { title: 'Drone Videography', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/drone.webp' },
-    { title: 'Event Videography', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/event.webp' },
-    { title: 'Product Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/product-video.webp' },
-    { title: 'Social Media Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/social-media-videos.webp' },
-    { title: 'Photoshoots', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/photoshoots-v1.webp' },
-    { title: '3D Animation Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/home/discover-our-expertise/3d-animation.webp' },
-    { title: 'AI Videos', link: '#', imgUrl: 'https://www.orangevideos.in/assets/images/ai-videos/ai-videos-thumbnail.webp' }
-  ]);
+
 
   // 4. INDUSTRIES CORE BLOCK MATRIX (PREMIUM EDITORIAL GRIDS)
   const [excelIndustries] = useState([
     { title: "BFSI & Fintech", code: "01", category: "Institutional", img: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80" },
-    { title: "Healthcare & Pharma", code: "02", category: "Medical Science", img: "https://images.unsplash.com/photo-1530026405186-ed1eaae6bbd4?auto=format&fit=crop&w=800&q=80" },
+    { title: "Healthcare & Pharma", code: "02", category: "Medical Science", img: "/industries_we_excel/1.jpeg" },
     { title: "Food & Beverages", code: "03", category: "Consumer Goods", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" },
     { title: "Logistics & Supply Chain", code: "04", category: "Enterprise Systems", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" },
     { title: "Manufacturing Sector", code: "05", category: "Heavy Industrial", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" },
@@ -86,14 +61,56 @@ function App() {
   ]);
 
   // 5. LIVE BEHIND THE SCENES VAULT
-  const [btsItems] = useState([
-    { id: 1, title: 'Coin DCX', vId: '23UNLBhUtW4', label: 'PRODUCTION CAMPAIGN', duration: '0:15' },
-    { id: 2, title: 'LINK BNK', vId: 'oenZAOmsiOY', label: 'FINTECH COMMERCIAL', duration: '0:30' },
-    { id: 3, title: 'Mentco', vId: 'gmaXp_csn1I', label: 'BRAND STORYTELLING', duration: '0:20' },
-    { id: 4, title: 'Zero B', vId: 'f9vGmjEO-T0', label: 'PRODUCT VISUALIZATION', duration: '0:15' },
-    { id: 5, title: 'All About Marketing', vId: 'HTaJRfTCHTA', label: 'GREEN SCREEN STUDIO', duration: '0:45' },
-    { id: 6, title: 'Morgan Stanley', vId: 'esjhbZC2zLo', label: 'ENTERPRISE IDENTITY', duration: '0:30' }
-  ]);
+const [btsItems] = useState([
+  { 
+    id: 1, 
+    title: 'Coin DCX', 
+    vId: '23UNLBhUtW4', 
+    label: 'PRODUCTION CAMPAIGN', 
+    duration: '0:15', 
+    videoSrc: '/Videos/BTS/1.mp4' // <-- Matches your file name in public/Videos/
+  },
+  { 
+    id: 2, 
+    title: 'LINK BNK', 
+    vId: 'oenZAOmsiOY', 
+    label: 'FINTECH COMMERCIAL', 
+    duration: '0:30', 
+    videoSrc: '/Videos/BTS/2.mp4' 
+  },
+  { 
+    id: 3, 
+    title: 'Mentco', 
+    vId: 'gmaXp_csn1I', 
+    label: 'BRAND STORYTELLING', 
+    duration: '0:20', 
+    videoSrc: '/Videos/BTS/3.mp4' 
+  },
+  { 
+    id: 4, 
+    title: 'Zero B', 
+    vId: 'f9vGmjEO-T0', 
+    label: 'PRODUCT VISUALIZATION', 
+    duration: '0:15', 
+    videoSrc: '/Videos/BTS/4.mp4' 
+  },
+  { 
+    id: 5, 
+    title: 'All About Marketing', 
+    vId: 'HTaJRfTCHTA', 
+    label: 'GREEN SCREEN STUDIO', 
+    duration: '0:45', 
+    videoSrc: '/Videos/BTS/5.mp4' 
+  },
+  { 
+    id: 6, 
+    title: 'Morgan Stanley', 
+    vId: 'esjhbZC2zLo', 
+    label: 'ENTERPRISE IDENTITY', 
+    duration: '0:30', 
+    videoSrc: '/Videos/BTS/6.mp4'
+  }
+]);
 
   // 6. PREMIUM CLIENT TESTIMONIAL DATA
   const [testimonials] = useState([
@@ -416,92 +433,93 @@ function App() {
 
       {/* SECTION 6: THE AMBER-GOLD STUDIO BTS VAULT METRO GRID */}
       <section className="premium-bts-studio-canvas-section" id="bts-vault-anchor">
-        <div className="studio-ambient-light-leak"></div>
+  <div className="studio-ambient-light-leak"></div>
 
-        <div className="bts-layout-container">
+  <div className="bts-layout-container">
 
-          <div className="bts-section-editorial-header">
-            <div className="bts-editorial-badge">
-              <span className="bts-badge-laser"></span>
-              Studio Access Portal // <span className="gold-text">Live Action Vault</span>
+    <div className="bts-section-editorial-header">
+      <div className="bts-editorial-badge">
+        <span className="bts-badge-laser"></span>
+        Studio Access Portal // <span className="gold-text">Live Action Vault</span>
+      </div>
+
+      <h2 className="bts-main-display-title">BTS // Inside The Frame</h2>
+
+      <p className="bts-sub-narrative-desc">
+        Step directly into the creative mechanism. Explore live on-set camera logs,
+        green-screen spatial mapping, and production rollouts engineering our core
+        commercial ad films.
+      </p>
+    </div>
+
+    <div className="bts-asymmetric-metro-grid">
+      {btsItems.map((item, index) => (
+        <div
+          key={item.id}
+          className={`bts-metro-card-wrapper grid-span-preset-${index + 1}`}
+          onClick={() => setActiveModalVideo(item.vId)}
+          style={{ cursor: "pointer" }}
+        >
+          <div className="bts-interactive-viewport-capsule">
+
+            {/* DYNAMIC VIDEO */}
+            <div
+              className="bts-fluid-video-rendering-asset"
+              style={{
+                pointerEvents: "none",
+                overflow: "hidden"
+              }}
+            >
+              {/* Adding a key here forces the browser to pull the correct unique video file */}
+              <video
+                key={item.id} 
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover"
+                }}
+              >
+                <source src={item.videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
 
-            <h2 className="bts-main-display-title">BTS // Inside The Frame</h2>
+            <div className="bts-viewport-shading-curtain"></div>
 
-            <p className="bts-sub-narrative-desc">
-              Step directly into the creative mechanism. Explore live on-set camera logs,
-              green-screen spatial mapping, and production rollouts engineering our core
-              commercial ad films.
-            </p>
-          </div>
+            <div className="bts-hud-top-deck">
+              <span className="bts-hud-tag">{item.label}</span>
+              <span className="bts-hud-counter">
+                LOG_{(index + 1).toString().padStart(2, "0")}
+              </span>
+            </div>
 
-          <div className="bts-asymmetric-metro-grid">
-            {btsItems.map((item, index) => (
-              <div
-                key={item.id}
-                className={`bts-metro-card-wrapper grid-span-preset-${index + 1}`}
-                onClick={() => setActiveModalVideo(item.vId)}
-                style={{ cursor: "pointer" }}
-              >
-                <div className="bts-interactive-viewport-capsule">
+            <div className="bts-content-lower-dock">
+              <div className="bts-title-group-box">
+                <h3 className="bts-project-card-title">{item.title}</h3>
+                <p className="bts-project-micro-metric">
+                  Studio Master Print // {item.duration} sec
+                </p>
+              </div>
 
-                  {/* VIDEO */}
-                  <div
-                    className="bts-fluid-video-rendering-asset"
-                    style={{
-                      pointerEvents: "none",
-                      overflow: "hidden"
-                    }}
-                  >
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="auto"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover"
-                      }}
-                    >
-                      <source src="/Videos/123.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-
-                  <div className="bts-viewport-shading-curtain"></div>
-
-                  <div className="bts-hud-top-deck">
-                    <span className="bts-hud-tag">{item.label}</span>
-                    <span className="bts-hud-counter">
-                      LOG_{(index + 1).toString().padStart(2, "0")}
-                    </span>
-                  </div>
-
-                  <div className="bts-content-lower-dock">
-                    <div className="bts-title-group-box">
-                      <h3 className="bts-project-card-title">{item.title}</h3>
-                      <p className="bts-project-micro-metric">
-                        Studio Master Print // {item.duration} sec
-                      </p>
-                    </div>
-
-                    <div className="bts-action-radar-pulse">
-                      <div className="radar-circle-element">
-                        <span className="radar-play-vector">➔</span>
-                      </div>
-                    </div>
-                  </div>
-
+              <div className="bts-action-radar-pulse">
+                <div className="radar-circle-element">
+                  <span className="radar-play-vector">➔</span>
                 </div>
               </div>
-            ))}
+            </div>
+
           </div>
-
         </div>
-      </section>
+      ))}
+    </div>
 
+  </div>
+</section>
       {/* SECTION 7: CLIENT PERSPECTIVES MATRIX (LIGHT THEME) */}
       <section className="testimonials-marquee-section" id="testimonials-marquee-section">
         <div className="testi-layout-container">
@@ -518,17 +536,17 @@ function App() {
             {/* Testimonial Card 1 */}
             <div className="testi-card-snippet">
               <div className="card-top-header">
-                <span className="client-brand-tag">FINTECH VENTURES</span>
+                <span className="client-brand-tag">Lohum Cleantech Pvt. Ltd.</span>
                 <div className="rating-star-cluster">★★★★★</div>
               </div>
               <p className="testi-body-prose">
-                "Golden Wire’s integration of high-density video assets into our React dashboard completely transformed our user engagement metrics. Their technical precision is unmatched."
+                "Goldenwire Media & Entertainment delivered an outstanding corporate video for us. Crisp editing, brilliant visuals, and a highly professional crew. They completely understood our brand and executed it flawlessly."
               </p>
               <div className="client-identity-node">
-                <div className="avatar-placeholder">MS</div>
+                <div className="avatar-placeholder">SJ</div>
                 <div className="identity-data">
-                  <span className="name-tag">Marcus Sterling</span>
-                  <span className="title-tag">CTO @ LinkBnk</span>
+                  <span className="name-tag">Santosh Jain</span>
+                  <span className="title-tag">Production and Marketing Communication Manager @ Lohum Cleantech Pvt. Ltd.</span>
                 </div>
               </div>
             </div>
@@ -536,17 +554,17 @@ function App() {
             {/* Testimonial Card 2 */}
             <div className="testi-card-snippet">
               <div className="card-top-header">
-                <span className="client-brand-tag">HHK ASSOCIATION</span>
+                <span className="client-brand-tag">Pratham Education Foundation</span>
                 <div className="rating-star-cluster">★★★★★</div>
               </div>
               <p className="testi-body-prose">
-                "The automated donation receipt system they built for us has reduced our manual labor by 90%. It’s rare to find a team that understands both creative design and complex backend logistics."
+                "We were blown away by Goldenwire’s ability to weave a complex rural impact journey into a seamless, gripping narrative. They managed the challenges of field shooting flawlessly and delivered an exquisite documentary film that gives our mission a powerful voice. Exceptional storytellers!"
               </p>
               <div className="client-identity-node">
-                <div className="avatar-placeholder">AH</div>
+                <div className="avatar-placeholder">RG</div>
                 <div className="identity-data">
-                  <span className="name-tag">Ananya H.</span>
-                  <span className="title-tag">Director, HHK</span>
+                  <span className="name-tag">Riya Gupta </span>
+                  <span className="title-tag">Marketing & Communication Manager, Pratham Education Foundation</span>
                 </div>
               </div>
             </div>
@@ -554,17 +572,17 @@ function App() {
             {/* Testimonial Card 3 */}
             <div className="testi-card-snippet">
               <div className="card-top-header">
-                <span className="client-brand-tag">GLOBAL MEDIA OPS</span>
+                <span className="client-brand-tag">DLF</span>
                 <div className="rating-star-cluster">★★★★★</div>
               </div>
               <p className="testi-body-prose">
-                "The most professional production studio I’ve worked with. They treat every ad film like a piece of high-frequency engineering. The visual impact has been phenomenal."
+                "Working with Goldenwire was a seamless experience. They took our corporate event and wove it into a beautiful, flowing story that looks spectacular. The editing is crisp, the storytelling is brilliant, and the final delivery exceeded our expectations."
               </p>
               <div className="client-identity-node">
-                <div className="avatar-placeholder">JL</div>
+                <div className="avatar-placeholder">SS</div>
                 <div className="identity-data">
-                  <span className="name-tag">Julian Laurent</span>
-                  <span className="title-tag">Head of Growth, Lumina</span>
+                  <span className="name-tag">Shobit Singh</span>
+                  <span className="title-tag">Marketing Manager, DLF</span>
                 </div>
               </div>
             </div>

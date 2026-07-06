@@ -71,28 +71,28 @@ const VALUES = [
 
 const TEAM = [
   {
-    name: "Priya Mehta",
-    role: "Editor-in-Chief",
-    bio: "20 years in print and digital journalism. Former deputy editor at a national daily. Leads editorial strategy and investigative commissioning.",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=440&fit=crop&q=80",
+    name: "Rishab",
+    role: "Founder & Production Manager",
+    bio: "Rishabh Gupta is the visionary creative driving force behind Goldenwire Media & Entertainment. Combining a deep passion for cinema-grade aesthetics with elite operational leadership, he has built Goldenwire into a trusted media production partner for premium corporate giants, leading development sector NGOs, and national broadcasters.",
+    img: "/about_us_photos/1.jpeg",
   },
   {
-    name: "Arjun Dhaliwal",
-    role: "Chief Reporter",
-    bio: "Covers politics and governance across Punjab and Haryana. Known for deep sourcing and long-form accountability journalism.",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=440&fit=crop&q=80",
+    name: "Nikita",
+    role: "Marketing and communication manager",
+    bio: "At Goldenwire, Nikita bridges the gap between high-end media production and business performance, ensuring every project we deliver aligns seamlessly with our clients' commercial and communication goals.",
+    img: "/about_us_photos/2.jpeg",
   },
   {
-    name: "Sunita Rathore",
-    role: "Head of Digital",
-    bio: "Leads product, SEO, and audience strategy. Grew our digital readership from 200k to 2.4M over six years.",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=440&fit=crop&q=80",
+    name: "Raman Kumar",
+    role: "Senior Video Editor",
+    bio: "With 8 years of excellence in post-production, Raman Kumar is a master storyteller who blends technical precision with creative flair. He has a proven track record of delivering high-impact visual content across multiple diverse domains, ensuring every project connects deeply with its audience.",
+    img: "/about_us_photos/3.jpeg",
   },
   {
-    name: "Rahul Batra",
-    role: "Video & Multimedia",
-    bio: "Documentary journalist and video unit head. His series on Himalayan border communities won a national broadcast award in 2022.",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=440&fit=crop&q=80",
+    name: "Shelly",
+    role: "Director of Photography (DoP)",
+    bio: "Shelly is the master behind the lens at Goldenwire, specializing in high-end, cinema-grade framing and light manipulation. With a sharp eye for visual storytelling, she seamlessly transitions between complex, large-scale corporate sets and challenging, on-ground rural documentary setups.",
+    img: "/about_us_photos/4.jpeg",
   },
 ];
 
